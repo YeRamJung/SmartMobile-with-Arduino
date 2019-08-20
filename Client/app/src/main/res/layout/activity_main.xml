@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFD9FA"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="60dp"
+        android:paddingTop="10px"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10px"
+            android:gravity="center"
+            android:text="LOGIN"
+            android:textSize="30dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="100dp"
+            android:paddingHorizontal="20sp">
+
+            <TextView
+                android:id="@+id/idText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="25dp"
+                android:text="ID"
+                />
+            <EditText
+                android:id="@+id/idEdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/idText"
+                android:paddingTop="10px"
+                />
+
+            <TextView
+                android:id="@+id/passText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/idEdt"
+                android:paddingTop="80dp"
+                android:textSize="25dp"
+                android:text="PASSWORD"
+                />
+            <EditText
+                android:id="@+id/passEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/passText"
+                android:paddingTop="10px"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_gravity="center_vertical"
+                android:text="LOG IN"
+                android:background="#cccccc"
+                android:textSize="15dp"/>
+            <TextView
+                android:id="@+id/sighup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="15dp"
+                android:layout_marginHorizontal="25dp"
+                android:text="SIGN UP"
+                android:layout_centerInParent="true"
+                android:background="#cccccc"
+                android:textSize="15dp"/>
+
+            <!-- 빌드 오류 button -> TextInput으로 변경 -->
+            <!--<Button
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:paddingHorizontal="10px"
+                android:text="LOG IN"
+                android:background="#0212343"
+                android:textSize="20dp"/>
+            <Button
+                android:id="@+id/sighup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="SIGN UP"
+                android:background="#0212343"
+                android:textSize="20dp"/>-->
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+<!--
+<androidx.appcompat.widget.LinearLayoutCompat.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#cccccc">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat.widget.ConstraintLayout>-->
