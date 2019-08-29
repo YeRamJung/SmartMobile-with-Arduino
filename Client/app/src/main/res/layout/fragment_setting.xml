@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.FragmentSetting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:background="#D996C7"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgPerson"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/person" />
+
+            <TextView
+                android:id="@+id/txtPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/mplusrounded1c"
+                android:text="swudoit"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/seoulnamsan"
+                android:text="우리 아이 카메라 보기"
+                android:textColor="#F2F2F2"
+                android:textSize="20dp" />
+
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/round_shape">
+
+                <ImageButton
+                    android:id="@+id/camera"
+                    android:layout_width="260dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/round_shape_white" />
+
+                <FrameLayout
+                    android:layout_width="80dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="right">
+
+                    <ImageButton
+                        android:id="@+id/btnCmaeraON"
+                        android:layout_width="50dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/btncameraon1" />
+
+                    <ImageButton
+                        android:id="@+id/btnCameraOFF"
+                        android:layout_width="50dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="120dp"
+                        android:background="@drawable/btncameraoff1" />
+                </FrameLayout>
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+
+        <!--밑단 전체 레이아웃-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--일산화탄소, 온도-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--일산화탄소-->
+                <FrameLayout
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="일산화탄소"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/txtCarbon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="0.5"
+                            android:textColor="#BF6BB1"
+                            android:textSize="50dp" />
+                    </FrameLayout>
+
+                </FrameLayout> <!--일산화탄소 끝-->
+
+                <!--온도-->
+                <FrameLayout
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="온도"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/txtTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="30°C"
+                            android:textColor="#BF6BB1"
+                            android:textSize="50dp" />
+                    </FrameLayout>
+
+                </FrameLayout> <!--온도 끝-->
+            </LinearLayout><!--일산화탄소, 온도 끝-->
+
+            <!--무드등, 습도-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--무드등-->
+                <FrameLayout
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="무드등"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnLamp"
+                            android:layout_width="45dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/lampoff" />
+                    </FrameLayout>
+
+                </FrameLayout> <!--무드등 끝-->
+
+                <!--습도-->
+                <FrameLayout
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="습도"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/txtHumidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="83%"
+                            android:textColor="#BF6BB1"
+                            android:textSize="50dp" />
+                    </FrameLayout>
+
+                </FrameLayout> <!--습도 끝-->
+            </LinearLayout><!--무드등, 습도 끝-->
+
+
+            <!--가습기, 에어컨-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--가습기-->
+                <FrameLayout
+                    android:layout_width="330dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="310dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="가습기"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnHumi"
+                            android:layout_width="45dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/humioff" />
+                        <!--가습기 끝-->
+
+                        <!--에어컨-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="220dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="에어컨"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnAircon"
+                            android:layout_width="70dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="210dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/airconoff" /><!--에어컨 끝-->
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout><!--가습기, 에어컨 끝-->
+
+            <!--모빌-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:layout_width="330dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="310dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageButton
+                                android:id="@+id/btnMobile"
+                                android:layout_width="55dp"
+                                android:layout_height="60dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="35dp"
+                                android:background="@drawable/mobileoff" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="60dp"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:text="모빌"
+                                android:textColor="#D996C7"
+                                android:textSize="20dp" />
+
+                        </LinearLayout>
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout><!--모빌 끝-->
+
+            <!--소리-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:layout_width="330dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_shape">
+
+                    <FrameLayout
+                        android:layout_width="310dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_shape_white">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageButton
+                                android:id="@+id/btnSound"
+                                android:layout_width="45dp"
+                                android:layout_height="60dp"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginTop="35dp"
+                                android:background="@drawable/soundoff" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="50dp"
+                                android:layout_marginTop="60dp"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:text="소리"
+                                android:textColor="#D996C7"
+                                android:textSize="20dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/btnMusic"
+                                    android:layout_width="80dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="45dp"
+                                    android:layout_marginTop="15dp"
+                                    android:background="@drawable/btnmusic" />
+
+                                <ImageButton
+                                    android:id="@+id/btnVoice"
+                                    android:layout_width="80dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginLeft="45dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@drawable/btnsound" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </FrameLayout>
+            </LinearLayout><!--소리 끝-->
+
+
+        </LinearLayout><!--밑단 전체 레이아웃 끝-->
+
+    </LinearLayout><!--큰 레이아웃-->
+
+
+    <!--하단바-->
+
+
+</ScrollView>
