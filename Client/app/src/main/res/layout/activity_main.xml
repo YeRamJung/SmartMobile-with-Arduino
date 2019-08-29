@@ -102,13 +102,13 @@
                 android:background="@drawable/btnsignup" />
 
 
-            <Button
+            <!--<Button
                 android:id="@+id/serverDebug"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="서버용"
                 android:onClick="mClick"
-                />
+                />-->
 
             <!--<TextView-->
             <!--android:id="@+id/login"-->

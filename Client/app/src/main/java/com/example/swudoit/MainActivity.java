@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -26,11 +27,16 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 
+import android.os.Debug;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,26 +106,14 @@ public class MainActivity extends AppCompatActivity {
         sighup.setOnClickListener(clickListener);
 
     }
-
-    private void logIn(View v){
-
-        String id = idE.getText().toString();
-
-        String pass = passE.getText().toString();
-
-        isUser = signIn(id, pass);
-
-        if (isUser) {
-            Toast.makeText(MainActivity.this, id + "님 환영합니다!!", Toast.LENGTH_SHORT).show();
-
-            Intent mainView = new Intent(this, TabActivity.class);
-
-            startActivity(mainView);
-        } else {
+    protected void logIn(View v) {
+        String idMg = idE.getText().toString();
+        String passMg = passE.getText().toString();
+        if(idMg.isEmpty() || passMg.isEmpty()){
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
 
             ab.setTitle("Error");
-            ab.setMessage("아이디, 비밀번호를 확인하세요!");
+            ab.setMessage("아이디, 비밀번호를 입력하세요!");
 
             ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                 @Override
@@ -130,42 +124,23 @@ public class MainActivity extends AppCompatActivity {
 
             ab.create();
             ab.show();
-        }
-
-    }
-
-    private boolean signIn(String id, String pass) {
-        if(id != null){
-            return true;
+            return;
         }else {
-            return false;
-        }
-    }
+            try{
+                Log.d("서버", "연결 시도");
+                ConnectServer connectServerPost = new ConnectServer();
+                connectServerPost.requestPost(idE.getText().toString(), passE.getText().toString());
 
-    protected void mClick(View v) {
-
-        String id = idE.getText().toString();
-
-        String password = passE.getText().toString();
-
-        String signinURL = url + "user/signin";
-
-        try{
-
-            Log.d("서버", "연결 시도");
-            ConnectServer connectServerPost = new ConnectServer();
-
-            connectServerPost.requestPost(idE.getText().toString(), passE.getText().toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
     public class ConnectServer{
         OkHttpClient client = new OkHttpClient();
 
-        public void requestPost(String id, String password){
+        public void requestPost(final String id, String password){
             RequestBody body = new FormBody.Builder()
                     .add("id", id)
                     .add("password", password)
@@ -180,13 +155,44 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call call, IOException e) {
                     Log.d("error", "Connect Server Error is " + e.toString());
-                    Log.d("Message ", "서버 연결 실패");
+
+                    backgroundThreadShortToast(MainActivity.this, "아이디, 비밀번호를 확인하세요.");
+
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     Log.d("Response ", "Response Body is " + response.body().string());
-                    Log.d("Message ", " 서버 연결 성공");
+                    try{
+                        Gson gson = new Gson();
+                        String falsedStl = gson.toJson(response.body());
+
+                        if(falsedStl.contains("68")){
+                            Intent mainView = new Intent(MainActivity.this, swudoit_main.class);
+                            startActivity(mainView);
+
+                            backgroundThreadShortToast(MainActivity.this, id + "님 환영합니다.");
+                            Log.d("Message ", "됨");
+                        }else{
+                            backgroundThreadShortToast(MainActivity.this, "아이디, 비밀번호를 확인하세요.");
+                            Log.d("Message ", "안 됨");
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
+
+    // Toast를 위한 함수
+    public static void backgroundThreadShortToast(final Context context, final String msg) {
+        if (context != null && msg != null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+
+                @Override
+                public void run() {
+                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
                 }
             });
         }

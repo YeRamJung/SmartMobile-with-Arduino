@@ -25,11 +25,11 @@ router.post('/', async (req, res)=>{
         else{
             userInfo.password=selectUserResult[0].password;
             const returnData={
-                studentIdx:selectUserResult[0].studentIdx
+                //studentIdx:selectUserResult[0].studentIdx
             }
 
             if(userInfo.password!=req.body.password){ //비밀번호 DB값과 다른 경우
-                res.status(500).send(utils.successTrue(statusCode.INTERNAL_SERVER_ERROR, responseMessage.MISS_MATCH_PW));
+                res.status(500).send(utils.successFalse(statusCode.INTERNAL_SERVER_ERROR, responseMessage.MISS_MATCH_PW));
             }else{ //비밀번호 DB값과 일치하는 경우
                 res.status(200).send(utils.successTrue(statusCode.OK, responseMessage.LOGIN_SUCCESS,returnData));
             }
