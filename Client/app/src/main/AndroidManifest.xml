@@ -13,14 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".NoteList" />
+        <activity android:name=".NoteFix"></activity>
+        <activity android:name=".Note" />
+        <activity android:name=".NoteList"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignUp" />
         <activity android:name=".MainActivity" />
         <activity android:name=".swudoit_main" />
-        <activity android:name=".SplashActivity"/>
-        <activity android:name=".Note">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
