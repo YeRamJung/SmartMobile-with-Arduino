@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".musicList">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="#d996c7">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23.8dp"
+            android:layout_marginLeft="29.3dp"
+            android:fontFamily="@font/seoulnamsan"
+            android:textColor="#afafaf"
+            android:textSize="25sp"
+            android:lineHeight="10sp"
+            android:text="노래 목록"
+            />
+        
+        <RelativeLayout
+            android:id="@+id/musicItem"
+            android:layout_width="360dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_shape">
+            
+            <ImageButton
+                android:id="@+id/musicPlayer"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/musicon"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="100dp"
+                android:fontFamily="@font/seoulnamsan"
+                android:textColor="#afafaf"
+                android:textSize="30sp"
+                android:lineHeight="10sp"
+                android:text="곰 세마리"
+                />
+            
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/musicItem2"
+            android:layout_width="360dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/round_shape">
+
+            <ImageButton
+                android:id="@+id/musicPlayer2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/musicon"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="100dp"
+                android:fontFamily="@font/seoulnamsan"
+                android:textColor="#afafaf"
+                android:textSize="30sp"
+                android:lineHeight="10sp"
+                android:text="학교 종이 땡땡땡"
+                />
+
+        </RelativeLayout>
+        
+    </LinearLayout>
+    
+</LinearLayout>
+
