@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp"
-    android:background="#d996c7">
+    android:background="#D996C7"
+    android:fontFamily="@font/mplusrounded1c">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="60dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/round_shape"
         android:orientation="vertical"
-        android:paddingTop="10px">
+        android:paddingTop="10px"
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -98,6 +100,7 @@
                 android:background="#cccccc"
                 android:padding="15dp"
                 android:text="SIGN UP"
+                android:fontFamily="@font/mplusrounded1c"
                 android:textSize="15dp" />
 
         </LinearLayout>

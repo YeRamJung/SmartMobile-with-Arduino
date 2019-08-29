@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        idE = (EditText)findViewById(R.id.idEdt);
-        passE = (EditText)findViewById(R.id.passEdit);
+        idE = (EditText) findViewById(R.id.idEdt);
+        passE = (EditText) findViewById(R.id.passEdit);
     }
 
-    protected void mClick(View v){
+    protected void mClick(View v) {
 
         String id = idE.getText().toString();
 
@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         isUser = signIn(id, pass);
 
-        if(isUser){
+        if (isUser) {
             Toast.makeText(MainActivity.this, id + "님 환영합니다!!", Toast.LENGTH_SHORT).show();
 
             Intent mainView = new Intent(this, swudoit_main.class);
 
             startActivity(mainView);
-        }else{
+        } else {
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
 
             ab.setTitle("Error");
@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean signIn(String id, String pass){
+    private boolean signIn(String id, String pass) {
 
+        return false;
     }
 }
