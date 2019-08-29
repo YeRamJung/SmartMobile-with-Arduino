@@ -1,9 +1,10 @@
 #include <SoftwareSerial.h>
+#include <Servo.h>
  
 #define BT_RXD 13
 #define BT_TXD 12
 SoftwareSerial bluetooth(BT_RXD, BT_TXD);
-
+Servo servo;
 
 //Speaker
 //음계 설정
@@ -65,15 +66,12 @@ int tempo_school[]={
 
 //무드등, 에어컨, 보일러 온오프?
 bool isOnLight = false;
-bool isOnAir = false;
-bool isOnBoil = false;
 
 void setup(){
   Serial.begin(9600);
   bluetooth.begin(9600);
   pinMode(8, OUTPUT);
-  pinMode(7, OUTPUT);
-  pinMode(4, OUTPUT);
+  servo.attach(4);
   pinMode(tonepin, OUTPUT);
 }
  
@@ -83,9 +81,8 @@ void loop(){
   /* each value means
    * 1. 곰세마리
    * 2. 학교종
-   * 3. 무드등->4
-   * 4. 에어컨->7
-   * 5. 보일러->8
+   * 3. 무드등 ->8
+   * 4. 모빌 ->4
    */
   
   if (bluetooth.available()) {
@@ -117,27 +114,19 @@ if(val == 1){
 }
 }else if(val==3){//무드등
   if(isOnLight==false){
-    digitalWrite(4, HIGH);
+    digitalWrite(8, HIGH);
     isOnLight=true;
   }else{
-    digitalWrite(4, LOW);
+    digitalWrite(8, LOW);
     isOnLight=false;
   }
-}else if(val==4){//에어컨
-  if(isOnAir==false){
-    digitalWrite(7, HIGH);
-    isOnAir=true;
-  }else{
-    digitalWrite(7, LOW);
-    isOnAir=false;
+}else if(val==4){
+  for(int angle = 0; angle<180; angle+=10){
+    servo.write(angle);
+    delay(500);
   }
-}else if(val==5){//보일러
-  if(isOnBoil==false){
-    digitalWrite(8, HIGH);
-    isOnBoil=true;
-  }else{
-    digitalWrite(8, LOW);
-    isOnBoil=false;
+  for(int angle = 180; angle>0; angle-=10){
+    servo.write(angle);
+    delay(500);}
   }
-}
 }
