@@ -91,11 +91,345 @@
         </FrameLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
+            <!--밑단 전체 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <!--일산화탄소, 온도-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--일산화탄소-->
+                    <FrameLayout
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="일산화탄소"
+                                android:textSize="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#D996C7"/>
+
+                            <TextView
+                                android:id="@+id/txtCarbon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textSize="50dp"
+                                android:text="0.5"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#BF6BB1"
+                                android:layout_marginTop="10dp"/>
+                        </FrameLayout>
+
+                    </FrameLayout> <!--일산화탄소 끝-->
+
+                    <!--온도-->
+                    <FrameLayout
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="온도"
+                                android:textSize="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#D996C7"/>
+
+                            <TextView
+                                android:id="@+id/txtTemp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textSize="50dp"
+                                android:text="30°C"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#BF6BB1"
+                                android:layout_marginTop="10dp"/>
+                        </FrameLayout>
+
+                    </FrameLayout> <!--온도 끝-->
+                </LinearLayout><!--일산화탄소, 온도 끝-->
+
+                <!--무드등, 습도-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--무드등-->
+                    <FrameLayout
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="무드등"
+                                android:textSize="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#D996C7"/>
+
+                            <ImageButton
+                                android:id="@+id/btnLamp"
+                                android:layout_width="45dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/lampoff"
+                                android:layout_marginTop="15dp"/>
+                        </FrameLayout>
+
+                    </FrameLayout> <!--무드등 끝-->
+
+                    <!--습도-->
+                    <FrameLayout
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="습도"
+                                android:textSize="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#D996C7"/>
+
+                            <TextView
+                                android:id="@+id/txtHumidity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textSize="50dp"
+                                android:text="83%"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#BF6BB1"
+                                android:layout_marginTop="10dp"/>
+                        </FrameLayout>
+
+                    </FrameLayout> <!--습도 끝-->
+                </LinearLayout><!--무드등, 습도 끝-->
+
+
+                <!--가습기, 에어컨-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--가습기-->
+                    <FrameLayout
+                        android:layout_width="330dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="310dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="가습기"
+                                android:textSize="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginLeft="45dp"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#D996C7"/>
+
+                            <ImageButton
+                                android:id="@+id/btnHumi"
+                                android:layout_width="45dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/humioff"
+                                android:layout_marginTop="50dp"
+                                android:layout_marginLeft="45dp"/>
+                        <!--가습기 끝-->
+
+                        <!--에어컨-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="에어컨"
+                                android:textSize="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginLeft="220dp"
+                                android:fontFamily="@font/seoulnamsan"
+                                android:textColor="#D996C7"/>
+
+                            <ImageButton
+                                android:id="@+id/btnAircon"
+                                android:layout_width="70dp"
+                                android:layout_height="60dp"
+                                android:layout_marginLeft="210dp"
+                                android:background="@drawable/airconoff"
+                                android:layout_marginTop="50dp"/><!--에어컨 끝-->
+                        </FrameLayout>
+                    </FrameLayout>
+                </LinearLayout><!--가습기, 에어컨 끝-->
+
+                <!--모빌-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:layout_width="330dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="310dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageButton
+                                    android:id="@+id/btnMobile"
+                                    android:layout_width="55dp"
+                                    android:layout_height="60dp"
+                                    android:background="@drawable/mobileoff"
+                                    android:layout_marginTop="35dp"
+                                    android:layout_marginLeft="40dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="모빌"
+                                    android:textSize="20dp"
+                                    android:layout_marginTop="60dp"
+                                    android:layout_marginLeft="50dp"
+                                    android:fontFamily="@font/seoulnamsan"
+                                    android:textColor="#D996C7"/>
+
+                            </LinearLayout>
+                        </FrameLayout>
+                    </FrameLayout>
+                </LinearLayout><!--모빌 끝-->
+
+                <!--소리-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:layout_width="330dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/round_shape"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp">
+
+                        <FrameLayout
+                            android:layout_width="310dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/round_shape_white"
+                            android:layout_margin="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageButton
+                                    android:id="@+id/btnSound"
+                                    android:layout_width="45dp"
+                                    android:layout_height="60dp"
+                                    android:background="@drawable/soundoff"
+                                    android:layout_marginTop="35dp"
+                                    android:layout_marginLeft="45dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="소리"
+                                    android:textSize="20dp"
+                                    android:layout_marginTop="60dp"
+                                    android:layout_marginLeft="50dp"
+                                    android:fontFamily="@font/seoulnamsan"
+                                    android:textColor="#D996C7"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <ImageButton
+                                        android:id="@+id/btnMusic"
+                                        android:layout_width="80dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/btnmusic"
+                                        android:layout_marginTop="15dp"
+                                        android:layout_marginLeft="45dp"/>
+                                    <ImageButton
+                                        android:id="@+id/btnVoice"
+                                        android:layout_width="80dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/btnsound"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginLeft="45dp"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </FrameLayout>
+                </LinearLayout><!--소리 끝-->
+
+
+            </LinearLayout><!--밑단 전체 레이아웃 끝-->
+
+    </LinearLayout><!--큰 레이아웃-->
 
 
 
