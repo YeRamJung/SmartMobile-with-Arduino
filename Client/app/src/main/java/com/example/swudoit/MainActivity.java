@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Dialog;
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText passE;
 
+    ImageButton login;
+
+    ImageButton sighup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +45,36 @@ public class MainActivity extends AppCompatActivity {
 
         idE = (EditText) findViewById(R.id.idEdt);
         passE = (EditText) findViewById(R.id.passEdit);
+
+        login = (ImageButton)findViewById(R.id.login);
+        sighup = (ImageButton)findViewById(R.id.signup);
+
+        ImageButton.OnClickListener clickListener = new ImageButton.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Log.d("버튼", "클릭");
+                switch (v.getId()){
+                    case R.id.login :
+                        logIn(v);
+                        break;
+                    case R.id.signup :
+                        Toast.makeText(MainActivity.this, "회원가입", Toast.LENGTH_SHORT).show();
+
+                        Intent signupView = new Intent(MainActivity.this, SignUp.class);
+
+                        startActivity(signupView);
+
+                        break;
+                }
+            }
+        };
+
+        login.setOnClickListener(clickListener);
+        sighup.setOnClickListener(clickListener);
+
     }
 
-    protected void mClick(View v) {
+    private void logIn(View v){
 
         String id = idE.getText().toString();
 
@@ -72,18 +104,25 @@ public class MainActivity extends AppCompatActivity {
             ab.create();
             ab.show();
         }
+
     }
 
     private boolean signIn(String id, String pass) {
-
-        new JSONTask().execute("https://13.125.153.65:3000/user/signin", id, pass);
-
         if(id != null){
             return true;
         }else {
             return false;
         }
+    }
 
+    protected void mClick(View v) {
+
+        String id = idE.getText().toString();
+
+        String pass = passE.getText().toString();
+
+
+        new JSONTask().execute("https://13.125.153.65:3000/user/signin", id, pass);
     }
 
 

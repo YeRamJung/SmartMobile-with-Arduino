@@ -76,6 +76,8 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="#D996C7"/>
+
+
         </RelativeLayout>
 
         <LinearLayout
@@ -90,8 +92,7 @@
                 android:layout_width="124dp"
                 android:layout_height="60dp"
                 android:background="@drawable/btnlogin"
-                android:clickable="true"
-                android:onClick="mClick" />
+                android:clickable="true" />
 
             <ImageButton
                 android:id="@+id/signup"
@@ -99,6 +100,15 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/btnsignup" />
+
+
+            <Button
+                android:id="@+id/serverDebug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="서버용"
+                android:onClick="mClick"
+                />
 
             <!--<TextView-->
             <!--android:id="@+id/login"-->
