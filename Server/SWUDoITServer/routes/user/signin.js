@@ -9,6 +9,7 @@ const responseMessage = require('../utils/responseMessage');
 const db = require('../../module/pool');
 
 router.post('/', async (req, res)=>{
+    console.log('안드로이드 테스트 실행');
     if (!req.body.id || !req.body.password) {
         res.status(200).send(utils.successFalse(statusCode.BAD_REQUEST),responseMessage.NULL_VALUE);
     } else {
@@ -32,11 +33,7 @@ router.post('/', async (req, res)=>{
             }else{ //비밀번호 DB값과 일치하는 경우
                 res.status(200).send(utils.successTrue(statusCode.OK, responseMessage.LOGIN_SUCCESS,returnData));
             }
-            
-    
         }
-
-
     }
     
 });

@@ -3,30 +3,57 @@ package com.example.swudoit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
+import android.os.AsyncTask;
 import android.os.Bundle;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Dialog;
-import java.io.*;
 
-import org.json.JSONObject;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.*;
-import android.os.AsyncTask;
-import java.io.OutputStream;
-import java.net.URL;
-import java.io.BufferedReader;
-import java.net.HttpURLConnection;
+import org.json.JSONObject;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+
+    static final String url = "http://13.125.111.255:3000/";
 
     boolean isUser;
 
@@ -119,71 +146,49 @@ public class MainActivity extends AppCompatActivity {
 
         String id = idE.getText().toString();
 
-        String pass = passE.getText().toString();
+        String password = passE.getText().toString();
 
+        String signinURL = url + "user/signin";
 
-        new JSONTask().execute("https://13.125.153.65:3000/user/signin", id, pass);
+        try{
+
+            Log.d("서버", "연결 시도");
+            ConnectServer connectServerPost = new ConnectServer();
+
+            connectServerPost.requestPost(idE.getText().toString(), passE.getText().toString());
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
+    public class ConnectServer{
+        OkHttpClient client = new OkHttpClient();
 
-    public class JSONTask extends AsyncTask<String, String, String>{
-        @Override
-        protected String doInBackground(String... params) {
-            Log.d("서버", "통신 시작");
+        public void requestPost(String id, String password){
+            RequestBody body = new FormBody.Builder()
+                    .add("id", id)
+                    .add("password", password)
+                    .build();
 
-            String result = null;
+            Request request = new Request.Builder()
+                    .url(url+"user/signin")
+                    .post(body)
+                    .build();
 
-            try{
-                String url = params[0];
-                String body = params[1];
-
-                URL urlObj = new URL(url);
-                HttpURLConnection conn = (HttpURLConnection)urlObj.openConnection();
-
-                // 10 초동안 서버로부터 반응없으면 에러
-                conn.setReadTimeout(100000);
-                // 접속하는 커넥션 타임 15초동안 접속안되면 안되는 것으로 간주(ms)
-                conn.setConnectTimeout(150000);
-
-                // Get인지 Post인지
-                conn.setRequestMethod("POST");
-                // character set UTF-u로 선언
-                conn.setRequestProperty("Accetp-Charset", "UTF-8");
-                // 서버로부터 보내는 패킷이 어떤 타입인지 선언
-                conn.setRequestProperty("Content-Type", "applecation/x-www-form-urlencoded"); // 폼테그 형식
-
-                // 안드로이드가 서버로부터 받는 것, 보내는 것을 트로
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-
-                OutputStream outStream = conn.getOutputStream();
-                // body는 서버로 보낼 스트링 값 설정
-                outStream.write(body.getBytes("utf-8"));
-
-                int resCode = conn.getResponseCode(); // connect, send http reuqest, receive htttp request
-                System.out.println ("code = "+ resCode);
-
-
-                InputStreamReader InputStream = new InputStreamReader(conn.getInputStream(), "UTF-8");//InputStreamReader는 서버로부터 안드로이드로 받아오는 데이터 흐름을 읽어주는 클래스
-                BufferedReader Reader = new BufferedReader(InputStream);
-                StringBuilder Builder = new StringBuilder();//스트링을 만들어주는데 유용하게쓰이는 클래스
-                String ResultStr; //저장할 공간
-
-                while ((ResultStr = Reader.readLine()) != null) {//(중요)서버로부터 한줄씩 읽어서 문자가 없을때까지 넣어줌
-                    Builder.append(ResultStr + "\n"); //읽어준 스트링값을 더해준다.
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.d("error", "Connect Server Error is " + e.toString());
+                    Log.d("Message ", "서버 연결 실패");
                 }
 
-                //result = Builder.toString();//빌더를 차곡차곡쌓아서 result에 넣는다.
-                //Toast.makeText(this.Parent, Body.toString(), Toast.LENGTH_LONG).show();
-
-                result = Builder.toString();
-
-
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-
-            return result;
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    Log.d("Response ", "Response Body is " + response.body().string());
+                    Log.d("Message ", " 서버 연결 성공");
+                }
+            });
         }
     }
 
