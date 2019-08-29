@@ -134,7 +134,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/seoulnamsan"
-                            android:text="0.5"
+                            android:text="양호"
                             android:textColor="#BF6BB1"
                             android:textSize="50dp" />
                     </FrameLayout>

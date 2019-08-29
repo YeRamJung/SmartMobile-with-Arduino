@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         if (isUser) {
             Toast.makeText(MainActivity.this, id + "님 환영합니다!!", Toast.LENGTH_SHORT).show();
 
-            Intent mainView = new Intent(this, swudoit_main.class);
+            Intent mainView = new Intent(this, TabActivity.class);
 
             startActivity(mainView);
         } else {
