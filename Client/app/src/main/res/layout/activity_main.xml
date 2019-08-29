@@ -4,98 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="#D996C7"
-    android:fontFamily="@font/mplusrounded1c">
+    android:fontFamily="@font/mplusrounded1c"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="60dp"
-        android:paddingTop="10px"
         android:background="@drawable/round_shape"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10px">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10px"
+            android:layout_marginTop="50dp"
             android:gravity="center"
+            android:padding="10px"
             android:text="LOGIN"
-            android:textSize="30dp"/>
+            android:textColor="#bf6bb1"
+            android:textSize="35dp"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="100dp"
-            android:paddingHorizontal="20sp">
+            android:paddingHorizontal="20sp"
+            android:paddingTop="20dp">
 
             <TextView
                 android:id="@+id/idText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:textSize="25dp"
+                android:layout_marginTop="30dp"
                 android:text="ID"
-                />
+                android:textColor="#bf6bb1"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/idEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/idText"
                 android:paddingTop="10px"
-                />
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#D996C7"/>
 
             <TextView
                 android:id="@+id/passText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/idEdt"
-                android:paddingTop="80dp"
-                android:textSize="25dp"
+                android:paddingTop="50dp"
                 android:text="PASSWORD"
-                />
+                android:textColor="#bf6bb1"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/passEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/passText"
                 android:paddingTop="10px"
-                />
+                android:inputType="textPassword"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#D996C7"/>
         </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="20dp">
+            android:orientation="horizontal">
 
-            <TextView
+            <ImageButton
                 android:id="@+id/login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:layout_marginHorizontal="25dp"
-                android:layout_gravity="center_vertical"
-                android:text="LOG IN"
-                android:background="#cccccc"
-                android:textSize="15dp"
-                android:fontFamily="@font/mplusrounded1c"
-                android:onClick="mClick"
-                android:clickable="true"/>
-            <TextView
-                android:id="@+id/sighup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="15dp"
-                android:layout_marginHorizontal="25dp"
-                android:text="SIGN UP"
-                android:fontFamily="@font/mplusrounded1c"
-                android:layout_centerInParent="true"
-                android:background="#cccccc"
-                android:textSize="15dp"/>
+                android:layout_width="124dp"
+                android:layout_height="60dp"
+                android:background="@drawable/btnlogin"
+                android:clickable="true"
+                android:onClick="mClick" />
+
+            <ImageButton
+                android:id="@+id/signup"
+                android:layout_width="124dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/btnsignup" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/login"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="15dp"-->
+            <!--android:layout_marginHorizontal="25dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:text="LOG IN"-->
+            <!--android:background="#cccccc"-->
+            <!--android:textSize="15dp"-->
+            <!--android:fontFamily="@font/mplusrounded1c"-->
+            <!--android:onClick="mClick"-->
+            <!--android:clickable="true"/>-->
+            <!--<TextView-->
+            <!--android:id="@+id/sighup"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:padding="15dp"-->
+            <!--android:layout_marginHorizontal="25dp"-->
+            <!--android:text="SIGN UP"-->
+            <!--android:fontFamily="@font/mplusrounded1c"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:background="#cccccc"-->
+            <!--android:textSize="15dp"/>-->
 
             <!-- 빌드 오류 button -> TextInput으로 변경 -->
             <!--<Button
@@ -118,8 +147,7 @@
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
-<!--
+</LinearLayout><!--
 <androidx.appcompat.widget.LinearLayoutCompat.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
