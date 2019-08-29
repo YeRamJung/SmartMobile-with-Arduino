@@ -1,8 +1,7 @@
 #include <SoftwareSerial.h>
-
-//bluetooth
-#define BT_RXD 8
-#define BT_TXD 7
+ 
+#define BT_RXD 13
+#define BT_TXD 12
 SoftwareSerial bluetooth(BT_RXD, BT_TXD);
 
 
@@ -17,7 +16,7 @@ SoftwareSerial bluetooth(BT_RXD, BT_TXD);
 #define NOTE_B5  988   //si
 #define NOTE_C6  1047  //do
 
-int tonepin = 12;
+int tonepin = 2;
 
 //3bears
 int melody_3bears[] = {
@@ -64,7 +63,7 @@ int tempo_school[]={
   4, 4, 4, 4, 4
   };
 
-//무드등, 에어컨, 보일러 온오프
+//무드등, 에어컨, 보일러 온오프?
 bool isOnLight = false;
 bool isOnAir = false;
 bool isOnBoil = false;
@@ -72,26 +71,23 @@ bool isOnBoil = false;
 void setup(){
   Serial.begin(9600);
   bluetooth.begin(9600);
-  pinMode(2, OUTPUT);
-  pinMode(13, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
   pinMode(4, OUTPUT);
   pinMode(tonepin, OUTPUT);
 }
  
 void loop(){
-  //블루투스로부터 읽어온 데이터를 저장 할 변수 val
-  //안드로이드에서 선택한 기능에 따라 int형 변수로 저장
   int val = bluetooth.read();
   
   /* each value means
    * 1. 곰세마리
    * 2. 학교종
-   * 3. 무드등->2
-   * 4. 에어컨->13
-   * 5. 보일러->4
+   * 3. 무드등->4
+   * 4. 에어컨->7
+   * 5. 보일러->8
    */
-
-  //블루투스 통신
+  
   if (bluetooth.available()) {
     Serial.write(bluetooth.read());
   }
@@ -101,7 +97,8 @@ void loop(){
  delay(10);
 
 
-if(val == 1){ //곰세마리 음악 재생
+//play the music
+if(val == 1){
   for (int i = 0; i < 19; i++) {
     int Durations = 1000/tempo_3bears[i];    // calculate sound length
     tone(tonepin, melody_3bears[i], Durations);    
@@ -109,7 +106,8 @@ if(val == 1){ //곰세마리 음악 재생
     delay(pauseBetweenNotes);
     noTone(tonepin);
   }
-}else if(val==2){//학교종 음악 재생
+}else if(val==2){
+  
   for (int i = 0; i < 24; i++) {
     int Durations = 1000/tempo_school[i];    // calculate sound length
     tone(tonepin, melody_school[i], Durations);    
@@ -119,26 +117,26 @@ if(val == 1){ //곰세마리 음악 재생
 }
 }else if(val==3){//무드등
   if(isOnLight==false){
-    digitalWrite(2, HIGH);
+    digitalWrite(4, HIGH);
     isOnLight=true;
   }else{
-    digitalWrite(2, LOW);
+    digitalWrite(4, LOW);
     isOnLight=false;
   }
 }else if(val==4){//에어컨
   if(isOnAir==false){
-    digitalWrite(13, HIGH);
+    digitalWrite(7, HIGH);
     isOnAir=true;
   }else{
-    digitalWrite(13, LOW);
+    digitalWrite(7, LOW);
     isOnAir=false;
   }
 }else if(val==5){//보일러
   if(isOnBoil==false){
-    digitalWrite(4, HIGH);
+    digitalWrite(8, HIGH);
     isOnBoil=true;
   }else{
-    digitalWrite(4, LOW);
+    digitalWrite(8, LOW);
     isOnBoil=false;
   }
 }
