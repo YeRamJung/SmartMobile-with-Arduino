@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:background="#D996C7"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgPerson"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/person" />
+
+            <TextView
+                android:id="@+id/txtPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="27dp"
+                android:fontFamily="@font/mplusrounded1c"
+                android:text="swudoit"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/seoulnamsan"
+                android:text="우리 아이 카메라 보기"
+                android:textColor="#F2F2F2"
+                android:textSize="20dp" />
+
+            <FrameLayout
+                android:layout_width="350dp"
+                android:layout_height="220dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/round_shape">
+
+                <ImageButton
+                    android:id="@+id/camera"
+                    android:layout_width="260dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/round_shape_white"/>
+
+                <FrameLayout
+                    android:layout_width="80dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="right">
+                    <ImageButton
+                        android:id="@+id/btnCmaeraON"
+                        android:layout_width="50dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/btncameraon1"/>
+
+                    <ImageButton
+                        android:id="@+id/btnCameraOFF"
+                        android:layout_width="50dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/btncameraoff1"/>
+                </FrameLayout>
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
+
+    </LinearLayout>
+
+
+
+</ScrollView>
