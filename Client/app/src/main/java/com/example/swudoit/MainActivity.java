@@ -67,6 +67,4 @@ public class MainActivity extends AppCompatActivity {
     private boolean signIn(String id, String pass){
 
     }
-
-
 }
