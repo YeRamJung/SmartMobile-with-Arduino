@@ -320,11 +320,12 @@
                 </FrameLayout>
             </LinearLayout><!--가습기, 에어컨 끝-->
 
-            <!--모빌-->
+            <!--모빌, 소리-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <!--모빌-->
                 <FrameLayout
                     android:layout_width="330dp"
                     android:layout_height="150dp"
@@ -338,98 +339,157 @@
                         android:layout_margin="10dp"
                         android:background="@drawable/round_shape_white">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="55dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="모빌"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
 
-                            <ImageButton
-                                android:id="@+id/btnMobile"
-                                android:layout_width="55dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="40dp"
-                                android:layout_marginTop="35dp"
-                                android:background="@drawable/mobileoff" />
+                        <ImageButton
+                            android:id="@+id/btnMobile"
+                            android:layout_width="55dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/mobileoff" />
+                        <!--모빌 끝-->
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="50dp"
-                                android:layout_marginTop="60dp"
-                                android:fontFamily="@font/seoulnamsan"
-                                android:text="모빌"
-                                android:textColor="#D996C7"
-                                android:textSize="20dp" />
+                        <!--노래-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="220dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/seoulnamsan"
+                            android:text="노래"
+                            android:textColor="#D996C7"
+                            android:textSize="20dp" />
 
-                        </LinearLayout>
+                        <ImageButton
+                            android:id="@+id/btnSound"
+                            android:layout_width="40dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="220dp"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/soundoff" /><!--노래 끝-->
                     </FrameLayout>
                 </FrameLayout>
-            </LinearLayout><!--모빌 끝-->
+            </LinearLayout><!--모빌, 노래 끝-->
 
-            <!--소리-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--&lt;!&ndash;모빌&ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <FrameLayout
-                    android:layout_width="330dp"
-                    android:layout_height="150dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/round_shape">
+                <!--<FrameLayout-->
+                    <!--android:layout_width="330dp"-->
+                    <!--android:layout_height="150dp"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:background="@drawable/round_shape">-->
 
-                    <FrameLayout
-                        android:layout_width="310dp"
-                        android:layout_height="130dp"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/round_shape_white">
+                    <!--<FrameLayout-->
+                        <!--android:layout_width="310dp"-->
+                        <!--android:layout_height="130dp"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:background="@drawable/round_shape_white">-->
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content">-->
 
-                            <ImageButton
-                                android:id="@+id/btnSound"
-                                android:layout_width="45dp"
-                                android:layout_height="60dp"
-                                android:layout_marginLeft="45dp"
-                                android:layout_marginTop="35dp"
-                                android:background="@drawable/soundoff" />
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/btnMobile"-->
+                                <!--android:layout_width="55dp"-->
+                                <!--android:layout_height="60dp"-->
+                                <!--android:layout_marginLeft="40dp"-->
+                                <!--android:layout_marginTop="35dp"-->
+                                <!--android:background="@drawable/mobileoff" />-->
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="50dp"
-                                android:layout_marginTop="60dp"
-                                android:fontFamily="@font/seoulnamsan"
-                                android:text="소리"
-                                android:textColor="#D996C7"
-                                android:textSize="20dp" />
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginLeft="50dp"-->
+                                <!--android:layout_marginTop="60dp"-->
+                                <!--android:fontFamily="@font/seoulnamsan"-->
+                                <!--android:text="모빌"-->
+                                <!--android:textColor="#D996C7"-->
+                                <!--android:textSize="20dp" />-->
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                        <!--</LinearLayout>-->
+                    <!--</FrameLayout>-->
+                <!--</FrameLayout>-->
+            <!--</LinearLayout>&lt;!&ndash;모빌 끝&ndash;&gt;-->
 
-                                <ImageButton
-                                    android:id="@+id/btnMusic"
-                                    android:layout_width="80dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginLeft="45dp"
-                                    android:layout_marginTop="15dp"
-                                    android:background="@drawable/btnmusic" />
+            <!--&lt;!&ndash;소리&ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                                <ImageButton
-                                    android:id="@+id/btnVoice"
-                                    android:layout_width="80dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginLeft="45dp"
-                                    android:layout_marginTop="5dp"
-                                    android:background="@drawable/btnsound" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </FrameLayout>
-                </FrameLayout>
-            </LinearLayout><!--소리 끝-->
+                <!--<FrameLayout-->
+                    <!--android:layout_width="330dp"-->
+                    <!--android:layout_height="150dp"-->
+                    <!--android:layout_marginLeft="30dp"-->
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:background="@drawable/round_shape">-->
+
+                    <!--<FrameLayout-->
+                        <!--android:layout_width="310dp"-->
+                        <!--android:layout_height="130dp"-->
+                        <!--android:layout_margin="10dp"-->
+                        <!--android:background="@drawable/round_shape_white">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content">-->
+
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/btnSound"-->
+                                <!--android:layout_width="45dp"-->
+                                <!--android:layout_height="60dp"-->
+                                <!--android:layout_marginLeft="45dp"-->
+                                <!--android:layout_marginTop="35dp"-->
+                                <!--android:background="@drawable/soundoff" />-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginLeft="50dp"-->
+                                <!--android:layout_marginTop="60dp"-->
+                                <!--android:fontFamily="@font/seoulnamsan"-->
+                                <!--android:text="소리"-->
+                                <!--android:textColor="#D996C7"-->
+                                <!--android:textSize="20dp" />-->
+
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:orientation="vertical">-->
+
+                                <!--<ImageButton-->
+                                    <!--android:id="@+id/btnMusic"-->
+                                    <!--android:layout_width="80dp"-->
+                                    <!--android:layout_height="50dp"-->
+                                    <!--android:layout_marginLeft="45dp"-->
+                                    <!--android:layout_marginTop="15dp"-->
+                                    <!--android:background="@drawable/btnmusic" />-->
+
+                                <!--<ImageButton-->
+                                    <!--android:id="@+id/btnVoice"-->
+                                    <!--android:layout_width="80dp"-->
+                                    <!--android:layout_height="50dp"-->
+                                    <!--android:layout_marginLeft="45dp"-->
+                                    <!--android:layout_marginTop="5dp"-->
+                                    <!--android:background="@drawable/btnsound" />-->
+                            <!--</LinearLayout>-->
+                        <!--</LinearLayout>-->
+                    <!--</FrameLayout>-->
+                <!--</FrameLayout>-->
+            <!--</LinearLayout>&lt;!&ndash;소리 끝&ndash;&gt;-->
 
 
         </LinearLayout><!--밑단 전체 레이아웃 끝-->
