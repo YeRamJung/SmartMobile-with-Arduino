@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.FragmentSetting">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정"
+            android:textSize="30dp"
+            android:fontFamily="@font/seoulnamsan"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#AFAFAF"/>
+        
+        <LinearLayout
+            android:id="@+id/infoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_shape"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:text="회원 정보"
+                android:textColor="#BF6BB1"
+                android:textSize="20dp"
+                android:fontFamily="@font/seoulnamsan"/>
+        </LinearLayout>
+            <!--<ImageButton-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:background="@drawable/btnarrow"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnInfo"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/round_shape"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:text="회원 정보"-->
+            <!--android:textColor="#bf6bb1"-->
+            <!--android:textSize="20dp"-->
+            <!--android:fontFamily="@font/seoulnamsan"-->
+            <!--android:layout_gravity="left">-->
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_margin="20dp"-->
+        <!--android:text="회원 정보"-->
+        <!--android:textColor="#BF6BB1"-->
+        <!--android:textSize="20dp"-->
+        <!--android:fontFamily="@font/seoulnamsan"/>-->
+        <!--<ImageButton-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:background="@drawable/btnarrow"/>-->
+
+        <LinearLayout
+            android:id="@+id/logoutLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_shape"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:text="로그아웃"
+                android:textColor="#BF6BB1"
+                android:textSize="20dp"
+                android:fontFamily="@font/seoulnamsan"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/signoutLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_shape"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:text="회원 탈퇴"
+                android:textColor="#BF6BB1"
+                android:textSize="20dp"
+                android:fontFamily="@font/seoulnamsan"/>
+        </LinearLayout>
+
+    </LinearLayout><!--큰 레이아웃-->
+
+</ScrollView>
