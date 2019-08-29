@@ -17,7 +17,7 @@ router.post('/', async (req, res)=>{
             password:req.body.password
         }
         const selectUserQuery='SELECT id, password FROM user WHERE id=?';
-        const selectUserResult=await db.queryParam_Parse(selectUserQuery,req.body.studentNum);
+        const selectUserResult=await db.queryParam_Parse(selectUserQuery,req.body.id);
         if(!selectUserResult){
             res.status(400).send(utils.successFalse(statusCode.INTERNAL_SERVER_ERROR,responseMessage.LOGIN_FAIL));
         }
