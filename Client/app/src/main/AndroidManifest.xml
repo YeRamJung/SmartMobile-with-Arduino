@@ -13,11 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".SettingInfoActivity"></activity>
         <activity android:name=".TabActivity"></activity>
         <activity android:name=".SignUp" />
         <activity android:name=".MainActivity" />
         <activity android:name=".swudoit_main" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
