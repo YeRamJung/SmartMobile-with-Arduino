@@ -41,11 +41,17 @@ public class FragmentHome extends Fragment {
         aircon = view.findViewById(R.id.btnAircon);
         mobile = view.findViewById(R.id.btnMobile);
 
-        userId = view.findViewById(R.id.txtPerson);
+        try{
+            userId = view.findViewById(R.id.txtPerson);
 
-        String user = MainActivity.sharedPreferences.getString("id", null);
+            String user = MainActivity.sharedPreferences.getString("id", null);
 
-        userId.setText(user);
+            userId.setText(user);
+        }catch (NullPointerException n){
+            n.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         //무드등 on/off
         lamp.setOnClickListener(new View.OnClickListener() {
