@@ -18,11 +18,81 @@ import com.example.swudoit.musicList;
 
 public class FragmentHome extends Fragment {
 
-    @Override
+    private ImageButton lamp;
+    private ImageButton humi;
+    private ImageButton aircon;
+    private ImageButton mobile;
 
+    private int lnum, hnum, anum, mnum = 0;
+
+    @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        lamp = view.findViewById(R.id.btnLamp);
+        humi = view.findViewById(R.id.btnHumi);
+        aircon = view.findViewById(R.id.btnAircon);
+        mobile = view.findViewById(R.id.btnMobile);
+
+        //무드등 on/off
+        lamp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(lnum==0){
+                    lamp.setSelected(true);
+                    lnum=1;
+                }
+                else{
+                    lamp.setSelected(false);
+                    lnum=0;
+                }
+            }
+        });
+
+        //가습기 on/off
+        humi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(hnum==0){humi.setSelected(true);
+                    hnum=1;
+                }
+                else{
+                    humi.setSelected(false);
+                    hnum=0;
+                }
+            }
+        });
+
+        //에어컨 on/off
+        aircon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(anum==0){
+                    aircon.setSelected(true);
+                    anum=1;
+                }
+                else{
+                    aircon.setSelected(false);
+                    anum=0;
+                }
+            }
+        });
+
+        //모빌 on/off
+        mobile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mnum==0){
+                    mobile.setSelected(true);
+                    mnum=1;
+                }
+                else{
+                    mobile.setSelected(false);
+                    mnum=0;
+                }
+            }
+        });
 
         //노래 버튼 눌러서 페이지 이동
         ImageButton btnSound = view.findViewById(R.id.btnSound);

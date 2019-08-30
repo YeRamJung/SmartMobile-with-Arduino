@@ -215,7 +215,7 @@
                             android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:layout_marginTop="15dp"
-                            android:background="@drawable/lampoff" />
+                            android:background="@drawable/lamp" />
                     </FrameLayout>
 
                 </FrameLayout> <!--무드등 끝-->
@@ -295,7 +295,7 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="45dp"
                             android:layout_marginTop="50dp"
-                            android:background="@drawable/humioff" />
+                            android:background="@drawable/humi" />
                         <!--가습기 끝-->
 
                         <!--에어컨-->
@@ -315,7 +315,7 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="210dp"
                             android:layout_marginTop="50dp"
-                            android:background="@drawable/airconoff" /><!--에어컨 끝-->
+                            android:background="@drawable/aircon" /><!--에어컨 끝-->
                     </FrameLayout>
                 </FrameLayout>
             </LinearLayout><!--가습기, 에어컨 끝-->
@@ -355,7 +355,7 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="45dp"
                             android:layout_marginTop="50dp"
-                            android:background="@drawable/mobileoff" />
+                            android:background="@drawable/mobile" />
                         <!--모빌 끝-->
 
                         <!--노래-->
