@@ -46,7 +46,11 @@
                 android:layout_height="53.3dp"
                 android:background="@drawable/camera"
                 android:layout_centerInParent="true"/>
+
+
         </RelativeLayout>
+
+
 
         <EditText
             android:id="@+id/noteTitle"

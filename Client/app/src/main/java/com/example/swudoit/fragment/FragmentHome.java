@@ -47,7 +47,7 @@ import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 public class FragmentHome extends Fragment {
 
     private ImageView mImgCamera;
-    //사진이 저장도니 경로 - onActivityResult()로부터 받는 데이터
+    //사진이 저장되는 경로 - onActivityResult()로부터 받는 데이터
     private Uri mCaptureUri;
     //사진이 저장된 단말기상의 실제 경로
     public String mPhotoPath;
@@ -412,13 +412,7 @@ public class FragmentHome extends Fragment {
                 bt.send("3", true);
             }
         });
-//        //가습기
-//        Button btnHumi = getActivity().findViewById(R.id.btnHumi); //데이터 전송
-//        btnHumi.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                bt.send("3", true);
-//            }
-//        });
+
         //모빌
         Button btnMobile = getActivity().findViewById(R.id.btnMobile); //데이터 전송
         btnMobile.setOnClickListener(new View.OnClickListener() {
@@ -426,6 +420,24 @@ public class FragmentHome extends Fragment {
                 bt.send("4", true);
             }
         });
+
+        //에어컨
+        Button btnAircon = getActivity().findViewById(R.id.btnAircon); //데이터 전송
+        btnAircon.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("5", true);
+            }
+        });
+
+        //가습기
+        Button btnHumi = getActivity().findViewById(R.id.btnHumi); //데이터 전송
+        btnHumi.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("6", true);
+            }
+        });
+
+
     }
 
 }
