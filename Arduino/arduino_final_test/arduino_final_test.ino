@@ -217,7 +217,7 @@ else if(val==6){//가습기
    * 2. 주의
    * 3. 위험
    */
-   
+   /*
   // 온도 판별
   if(temp<22 || temp>30 ){  // [온도] 22 미만 30 초과  : 3. 위험
     temp_alarm=3;
@@ -243,7 +243,7 @@ else if(val==6){//가습기
       }
    Serial.print("humi_alarm: ");
    Serial.println(humi_alarm);
-      
+      */
   // 가스 판별
   if(gas > gas_threshold){
     isDangerGas = true;
