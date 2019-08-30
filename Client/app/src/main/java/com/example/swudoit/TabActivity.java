@@ -28,8 +28,6 @@ public class TabActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
 
-    TextView userId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +36,6 @@ public class TabActivity extends AppCompatActivity {
 
         mTabLayout = findViewById(R.id.tabLayout);
         mViewPager = findViewById(R.id.viewPager);
-
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_home, null);
-
-        userId = (TextView)view.findViewById(R.id.txtPerson);
 
         //탭 생성
         mTabLayout.addTab(mTabLayout.newTab().setText("홈"));
@@ -98,9 +91,6 @@ public class TabActivity extends AppCompatActivity {
         public int getCount() {
             return tabCount;
         } //실수하면 안됨! 만들어 놓은걸로 바꿔야 함
-    }
-
-    public void uploadUserID(){
     }
 }
 

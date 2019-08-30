@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     static final String url = "http://13.125.111.255:3000/";
 
-    static SharedPreferences sharedPreferences = null;
+    public static SharedPreferences sharedPreferences = null;
 
     public static String idSession = null;
 
