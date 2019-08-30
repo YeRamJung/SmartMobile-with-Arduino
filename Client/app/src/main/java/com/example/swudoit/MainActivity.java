@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -17,6 +18,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -26,10 +29,12 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
 
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
+import android.se.omapi.Session;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -37,6 +42,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,7 +55,10 @@ import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
 import okhttp3.FormBody;
+import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -61,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
     static final String url = "http://13.125.111.255:3000/";
 
-    boolean isUser;
+    static SharedPreferences sharedPreferences = null;
+
+    public static String idSession = null;
 
     EditText idE;
 
@@ -81,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
         login = (ImageButton)findViewById(R.id.login);
         sighup = (ImageButton)findViewById(R.id.signup);
+
+        sharedPreferences = getSharedPreferences("ID", Context.MODE_PRIVATE);
 
         ImageButton.OnClickListener clickListener = new ImageButton.OnClickListener(){
             @Override
@@ -146,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     .add("password", password)
                     .build();
 
-            Request request = new Request.Builder()
+            final Request request = new Request.Builder()
                     .url(url+"user/signin")
                     .post(body)
                     .build();
@@ -156,25 +169,40 @@ public class MainActivity extends AppCompatActivity {
                 public void onFailure(Call call, IOException e) {
                     Log.d("error", "Connect Server Error is " + e.toString());
                     backgroundThreadShortToast(MainActivity.this, "아이디, 비밀번호를 확인하세요.");
-
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    Log.d("Response ", "Response Body is " + response.body().string());
                     try{
                         Gson gson = new Gson();
-                        String stl = gson.toJson(response.body());
 
-                        if(stl.contains("68")){
-                            Intent mainView = new Intent(MainActivity.this, TabActivity.class);
-                            startActivity(mainView);
+                        String stl = gson.toJson(response.body().string());
+
+                        Log.d("Response ", "Response Body is " + stl);
+
+                        //String idStl = stl.substring(76, stl.length()-5);
+                        //String status = stl.substring(13, 16);
+
+                        if(response.isSuccessful()){
+
+                            int temp = stl.indexOf("id");
+                            String idStl = stl.substring(temp+7, stl.length()-5);
+
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            editor.putString("id", idStl);
+
+                            idSession = sharedPreferences.getString("id", null);
+
+                            editor.commit();
+
 
                             backgroundThreadShortToast(MainActivity.this, id + "님 환영합니다.");
-                            Log.d("Message ", "됨");
+
+                            Intent mainView = new Intent(MainActivity.this, TabActivity.class);
+                            startActivity(mainView);
                         }else{
                             backgroundThreadShortToast(MainActivity.this, "아이디, 비밀번호를 확인하세요.");
-                            Log.d("Message ", "안 됨");
                         }
                     }catch (Exception e){
                         e.printStackTrace();
@@ -195,6 +223,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public static void logOut(){
+        try{
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Log.d("Debug", sharedPreferences.getString("id", null));
+
+            editor.clear();
+            editor.commit();
+
+            Log.d("Logout", "로그아웃, 세션 종료");
+        }catch (NullPointerException n){
+            n.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }

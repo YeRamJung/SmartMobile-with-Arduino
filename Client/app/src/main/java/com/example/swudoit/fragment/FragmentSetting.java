@@ -51,6 +51,7 @@ public class FragmentSetting extends Fragment {
                 ab.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        MainActivity.logOut();
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         startActivity(intent);
                         Toast.makeText(getActivity(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();

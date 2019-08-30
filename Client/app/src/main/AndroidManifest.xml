@@ -2,12 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.swudoit">
     <!-- 인터넷 연결 허용 퍼미션 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!--블루투스 연결 허용 퍼미션-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 블루투스 연결 허용 퍼미션 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
 
     <application
         android:allowBackup="true"
@@ -18,18 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".musicList"></activity>
+        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".musicList" />
         <activity android:name=".SettingInfoActivity" /> <!-- <activity android:name=".TabActivity"></activity> -->
         <activity android:name=".item" />
-        <activity android:name=".TabActivity"></activity>
+        <activity android:name=".TabActivity" />
         <activity android:name=".NoteFix" />
         <activity android:name=".Note" />
         <activity android:name=".NoteList" />
         <activity android:name=".SignUp" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
-        <!--<activity android:name=".TabActivity">-->
 
+            <!-- <activity android:name=".TabActivity"> -->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

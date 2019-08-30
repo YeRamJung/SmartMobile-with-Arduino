@@ -6,12 +6,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.swudoit.fragment.FragmentDiary;
 import com.example.swudoit.fragment.FragmentHome;
 import com.example.swudoit.fragment.FragmentSetting;
 import com.google.android.material.tabs.TabLayout;
+
+import org.w3c.dom.Text;
 
 public class TabActivity extends AppCompatActivity {
 
@@ -19,6 +27,10 @@ public class TabActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
+
+    TextView userId;
+
+    static SharedPreferences prf = null;
 
 
     @Override
@@ -28,6 +40,21 @@ public class TabActivity extends AppCompatActivity {
 
         mTabLayout = findViewById(R.id.tabLayout);
         mViewPager = findViewById(R.id.viewPager);
+
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.fragment_home, null);
+
+        userId = (TextView)view.findViewById(R.id.txtPerson);
+
+        prf = getSharedPreferences("ID", MODE_PRIVATE);
+
+        String idStl = prf.getString("id", null);
+
+        Log.d("idStl", idStl);
+
+        Log.d("String", (String) userId.getText());
+
+        userId.setText("외?않?대?");
 
         //탭 생성
         mTabLayout.addTab(mTabLayout.newTab().setText("홈"));
@@ -83,7 +110,9 @@ public class TabActivity extends AppCompatActivity {
         public int getCount() {
             return tabCount;
         } //실수하면 안됨! 만들어 놓은걸로 바꿔야 함
+    }
 
+    public void uploadUserID(){
     }
 }
 
