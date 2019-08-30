@@ -46,12 +46,16 @@ public class Note extends AppCompatActivity {
     String image_name;
     String image_copied;
 
-    String id;
+    String userIdx;
+
+    boolean isCamera;
 
     ImageButton imgCamera;      // 카메라
     ImageButton btnreg;         // 작성
     EditText noteTitle;         // 타이틀
     EditText noteContent;       // 내용
+
+    SharedPreferences prf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +64,24 @@ public class Note extends AppCompatActivity {
 
         imgCamera = findViewById(R.id.imgCamera);
         btnreg = findViewById(R.id.btnreg);
-        noteTitle = findViewById(R.id.noteContent);
+        noteTitle = findViewById(R.id.noteTitle);
         noteContent = findViewById(R.id.noteContent);
 
-        id = MainActivity.sharedPreferences.getString("id", null);
+        //prf = getSharedPreferences("ID", Context.MODE_PRIVATE);
+        prf = MainActivity.sharedPreferences;
 
-        // 이미지 버튼 클릭 리스너, 카메라, 작성 버튼
+        userIdx = prf.getString("userIdx", null);
+
+        Log.d("userIdx", userIdx);
+
+        // 이미지 버튼 클릭 리스너, 카메라, 작성 버튼, 카메라 찍고 확인하면 true, 아니면 false
         ImageButton.OnClickListener imageClickListener = new ImageButton.OnClickListener(){
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.imgCamera :
                         Log.d("Message", "카메라 입력하기");
+                        isCamera = false;
                         break;
                     case R.id.btnreg :
                         Log.d("Message", "다이어리 입력하기");
@@ -80,6 +90,15 @@ public class Note extends AppCompatActivity {
                         title = noteTitle.getText().toString();
                         content = noteContent.getText().toString();
                         today = uploadToday();
+
+                        // 카메라
+                        if(!isCamera){
+                            image_name = "";
+                            image_copied = "";
+                        }else{
+                            image_name = "";
+                            image_copied = "";
+                        }
 
                         Log.d("Message", "Title : " + title);
                         Log.d("Message", "Content : " + content);
@@ -105,6 +124,8 @@ public class Note extends AppCompatActivity {
                         }
 
                         // 서버 통신 후 성공하면 Intent, 실패하면 Alert
+                        ConnectServer connectServerPost = new ConnectServer();
+                        connectServerPost.requestPost(title, content, today, userIdx, image_name, image_copied);
 
                         break;
                 }
@@ -131,13 +152,18 @@ public class Note extends AppCompatActivity {
 
         String url = "http://13.125.111.255:3000/";
 
-        public void requestPost(final String id){
+        public void requestPost(String title, String content, String today, String userIdx, String image_name, String image_copied){
             RequestBody body = new FormBody.Builder()
-                    .add("id", id)
+                    .add("title", title)
+                    .add("content", content)
+                    .add("today", today)
+                    .add("userIdx", userIdx)
+                    .add("image_name", image_name)
+                    .add("image_copied", image_copied)
                     .build();
 
             final Request request = new Request.Builder()
-                    .url(url+"user/selectIdx")
+                    .url(url+"user/diary")
                     .post(body)
                     .build();
 
@@ -145,6 +171,7 @@ public class Note extends AppCompatActivity {
                 @Override
                 public void onFailure(Call call, IOException e) {
                     Log.d("error", "Connect Server Error is " + e.toString());
+                    backgroundThreadShortToast(Note.this, "서버 통신에 실패하였습니다.");
                 }
 
                 @Override
@@ -154,11 +181,12 @@ public class Note extends AppCompatActivity {
 
                         String stl = gson.toJson(response.body().string());
 
-                        Log.d("Response ", "Response Body is " + stl);
-
                         if(response.isSuccessful()){
-
+                            backgroundThreadShortToast(Note.this, "다이어리 업로드하였습니다.");
+                            Intent noteListView = new Intent(Note.this, NoteList.class);
+                            startActivity(noteListView);
                         }else{
+                            backgroundThreadShortToast(Note.this, "서버 통신에 실패하였습니다.");
                         }
                     }catch (Exception e){
                         e.printStackTrace();
