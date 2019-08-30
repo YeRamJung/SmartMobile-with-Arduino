@@ -286,6 +286,7 @@ public class MainActivity extends AppCompatActivity {
 
             editor.clear();
             editor.commit();
+            TabActivity.cdt.cancel();
 
             Log.d("Logout", "로그아웃, 세션 종료");
         }catch (NullPointerException n){

@@ -182,7 +182,6 @@ public class Note extends AppCompatActivity {
                         ConnectServer connectServerPost = new ConnectServer();
                         connectServerPost.requestPost(title, content, today, userIdx, image_name, image_copied);
 
-
                         /*backgroundThreadShortToast(Note.this, "다이어리 업로드하였습니다.");
                         Intent noteListView = new Intent(Note.this, TabActivity.class);
                         startActivity(noteListView);*/
