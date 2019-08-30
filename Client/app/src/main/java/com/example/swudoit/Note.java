@@ -34,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.swudoit.fragment.FragmentDiary;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -180,6 +181,11 @@ public class Note extends AppCompatActivity {
                         // 서버 통신 후 성공하면 Intent, 실패하면 Alert
                         //ConnectServer connectServerPost = new ConnectServer();
                         //connectServerPost.requestPost(title, content, today, userIdx, image_name, image_copied);
+
+
+                        backgroundThreadShortToast(Note.this, "다이어리 업로드하였습니다.");
+                        Intent noteListView = new Intent(Note.this, TabActivity.class);
+                        startActivity(noteListView);
 
                         break;
                 }
@@ -420,7 +426,7 @@ public class Note extends AppCompatActivity {
 
                         if(response.isSuccessful()){
                             backgroundThreadShortToast(Note.this, "다이어리 업로드하였습니다.");
-                            Intent noteListView = new Intent(Note.this, NoteList.class);
+                            Intent noteListView = new Intent(Note.this, TabActivity.class);
                             startActivity(noteListView);
                         }else{
                             backgroundThreadShortToast(Note.this, "서버 통신에 실패하였습니다.");

@@ -63,8 +63,6 @@ public class TabActivity extends AppCompatActivity {
             }
         });
 
-        NoteList.selectIndex();
-
     }  //end onCreate
 
     static class ViewPagerAdapter extends FragmentPagerAdapter {
