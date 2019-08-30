@@ -1,4 +1,4 @@
-#include <Adafruit_Sensor.h>   // dht 라이브러리 오류 방지용
+#include <Adafruit_Sensor.h>    // dht 라이브러리 오류 방지용
 #include <DHT.h> // DHT라이브러리 포함
 #include <LiquidCrystal.h>
 #include <SoftwareSerial.h>
@@ -197,18 +197,22 @@ else if(val==6){//가습기
   }
 }
   }
-
+  
   // 센서 (온습도, 가스, 사운드) 측정
   Serial.print("temp: ");
-  Serial.print(temp);
-  Serial.print(" , ");
-  Serial.print(" humi: ");
-  Serial.print(humi);
-  Serial.print(" gas: ");
-  Serial.print(gas);
-  Serial.print(" , ");
-  Serial.print(" sound: ");
+  Serial.println(temp);
+  delay(2000);
+  //Serial.print(" , ");
+  Serial.print("humi: ");
+  Serial.println(humi);
+  delay(2000);
+  Serial.print("gas: ");
+  Serial.println(gas);
+  delay(2000);
+  //Serial.print(" , ");
+  Serial.print("sound: ");
   Serial.println(sound);
+  delay(2000);
   
 
 
