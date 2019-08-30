@@ -59,6 +59,7 @@ public class FragmentHome extends Fragment {
     private ImageButton humi;
     private ImageButton aircon;
     private ImageButton mobile;
+    private ImageButton sound;
 
     private int lnum, hnum, anum, mnum, snum = 0;
 
@@ -103,6 +104,7 @@ public class FragmentHome extends Fragment {
         humi = view.findViewById(R.id.btnHumi);
         aircon = view.findViewById(R.id.btnAircon);
         mobile = view.findViewById(R.id.btnMobile);
+        sound = view.findViewById(R.id.btnSound);
 
         try{
             userId = view.findViewById(R.id.txtPerson);
@@ -174,6 +176,22 @@ public class FragmentHome extends Fragment {
                 }
             }
         });
+
+        //노래 on/off
+        sound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(snum==0){
+                    sound.setSelected(true);
+                    snum=1;
+                }
+              else{
+                  sound.setSelected(false);
+                  snum=0;
+              }
+            }
+        });
+
 
         //노래 버튼 눌러서 페이지 이동
         ImageButton btnSound = view.findViewById(R.id.btnSound);

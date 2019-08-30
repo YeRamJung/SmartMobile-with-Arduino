@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-
+import android.widget.Toast;
+import com.example.swudoit.fragment.FragmentHome;
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 
 public class musicList extends AppCompatActivity {
@@ -32,10 +33,12 @@ public class musicList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(num1==0){
+                    Toast.makeText(musicList.this, "음악 재생" , Toast.LENGTH_LONG).show();
                     music1.setSelected(true);
                     num1=1;
                 }
                 else{
+                    Toast.makeText(musicList.this, "음악 정지" , Toast.LENGTH_LONG).show();
                     music1.setSelected(false);
                     num1=0;
                 }
@@ -47,10 +50,12 @@ public class musicList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(num2==0){
+                    Toast.makeText(musicList.this, "음악 재생" , Toast.LENGTH_LONG).show();
                     music2.setSelected(true);
                     num2=1;
                 }
                 else{
+                    Toast.makeText(musicList.this, "음악 정지" , Toast.LENGTH_LONG).show();
                     music2.setSelected(false);
                     num2=0;
                 }

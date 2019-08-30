@@ -375,7 +375,7 @@
                             android:layout_height="60dp"
                             android:layout_marginLeft="220dp"
                             android:layout_marginTop="50dp"
-                            android:background="@drawable/soundoff" /><!--노래 끝-->
+                            android:background="@drawable/sound" /><!--노래 끝-->
                     </FrameLayout>
                 </FrameLayout>
             </LinearLayout><!--모빌, 노래 끝-->
