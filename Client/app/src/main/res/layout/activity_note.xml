@@ -40,33 +40,46 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="17.5dp">
 
-            <ImageButton
-                android:id="@+id/imgCamera"
-                android:layout_width="74.3dp"
-                android:layout_height="53.3dp"
-                android:background="@drawable/camera"
-                android:layout_centerInParent="true"/>
+            <ImageView
+                android:id="@+id/imgRoundShape"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/imgcamera"
+                />
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/imgCamera"-->
+                <!--android:layout_width="74.3dp"-->
+                <!--android:layout_height="53.3dp"-->
+                <!--android:background="@drawable/camera"-->
+                <!--android:layout_centerInParent="true"/>-->
 
 
         </RelativeLayout>
 
 
         <Button
+            android:id="@+id/btnNoteCamera"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:background="@drawable/round_shape_white"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="150dp"
             android:layout_marginLeft="90dp"
+            android:fontFamily="@font/seoulnamsan"
+            android:textColor="#6e6e6e"
             android:text="카메라"
             />
 
 
         <Button
+            android:id="@+id/btnNoteAlbum"
             android:layout_width="80dp"
             android:layout_height="40dp"
             android:background="@drawable/round_shape_white"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="150dp"
             android:layout_marginLeft="190dp"
+            android:textColor="#6e6e6e"
+            android:fontFamily="@font/seoulnamsan"
             android:text="앨범"
             />
 

@@ -27,9 +27,11 @@ import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -55,7 +57,7 @@ public class Note extends AppCompatActivity {
     // 타이틀 입력 -> return String
     // 내용 or 타이틀 입력 하지 않음 -> 입력하라고 알람 뜨기
 
-    private ImageView mImgCamera;
+    private ImageView imgRoundShape;
     //사진이 저장되는 경로 - onActivityResult()로부터 받는 데이터
     private Uri mCaptureUri;
     //사진이 저장된 단말기상의 실제 경로
@@ -96,22 +98,22 @@ public class Note extends AppCompatActivity {
                 Manifest.permission.CAMERA
         }, 0);
 
-        mImgCamera = findViewById(R.id.imgCamera);
-        ImageButton btnCamera = findViewById(R.id.btnCamera);
+        imgRoundShape = findViewById(R.id.imgRoundShape);
+        Button btnNoteCamera = findViewById(R.id.btnNoteCamera);
         //사진찍기 버튼
-        btnCamera.setOnClickListener(new View.OnClickListener() {
+        btnNoteCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 takePicture();
             }
         });
-//        ImageButton btnAlbum = findViewById(R.id.btnAlbum);
-//        btnAlbum.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToAlbum();
-//            }
-//        });
+        Button btnNoteAlbum = findViewById(R.id.btnNoteAlbum);
+        btnNoteAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToAlbum();
+            }
+        });
 
 
         imgCamera = findViewById(R.id.imgCamera);
@@ -184,7 +186,7 @@ public class Note extends AppCompatActivity {
             }
         };
 
-        imgCamera.setOnClickListener(imageClickListener);
+        imgRoundShape.setOnClickListener(imageClickListener);
         btnreg.setOnClickListener(imageClickListener);
 
     } //end onCreate
@@ -281,14 +283,14 @@ public class Note extends AppCompatActivity {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         Bitmap originalBm = BitmapFactory.decodeFile(tempFile.getAbsolutePath(), options);
-        Bitmap resizedBmp = getResizedBitmap(originalBm, 4, 100, 100);
+        Bitmap resizedBmp = getResizedBitmap(originalBm, 4, 1000, 1000);
 
         //줄어든 이미지를 다시 저장한다
         mPhotoPath = tempFile.getAbsolutePath();
         mCaptureUri = Uri.fromFile(tempFile);
 //        saveBitmapToFileCache(resizedBmp, mPhotoPath);
 
-        mImgCamera.setImageBitmap(resizedBmp);
+        imgRoundShape.setImageBitmap(resizedBmp);
     }
 
     private File getOutPutMediaFile() {
@@ -310,7 +312,7 @@ public class Note extends AppCompatActivity {
 
     private void sendPicture() {
         Bitmap bitmap = BitmapFactory.decodeFile(mPhotoPath);
-        Bitmap resizedBmp = getResizedBitmap(bitmap, 4, 100, 100);
+        Bitmap resizedBmp = getResizedBitmap(bitmap, 4, 1000, 1000);
 
         bitmap.recycle();
 
@@ -331,7 +333,7 @@ public class Note extends AppCompatActivity {
             exifDegree = 0;
         }
         Bitmap rotatedBmp = roate(resizedBmp, exifDegree);
-        mImgCamera.setImageBitmap( rotatedBmp );
+        imgRoundShape.setImageBitmap( rotatedBmp );
 
         Toast.makeText(this, "사진경로: " + mPhotoPath, Toast.LENGTH_LONG).show();
     }
