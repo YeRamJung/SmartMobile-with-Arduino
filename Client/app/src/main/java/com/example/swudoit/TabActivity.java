@@ -30,8 +30,6 @@ public class TabActivity extends AppCompatActivity {
 
     TextView userId;
 
-    static SharedPreferences prf = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +43,6 @@ public class TabActivity extends AppCompatActivity {
         View view = inflater.inflate(R.layout.fragment_home, null);
 
         userId = (TextView)view.findViewById(R.id.txtPerson);
-
-        prf = getSharedPreferences("ID", MODE_PRIVATE);
-
-        String idStl = prf.getString("id", null);
-
-        Log.d("idStl", idStl);
-
-        Log.d("String", (String) userId.getText());
-
-        userId.setText("외?않?대?");
 
         //탭 생성
         mTabLayout.addTab(mTabLayout.newTab().setText("홈"));
