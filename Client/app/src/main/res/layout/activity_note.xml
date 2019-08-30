@@ -28,7 +28,7 @@
     <RelativeLayout
         android:layout_width="360dp"
         android:layout_height="460dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
         android:background="#f2f2f2">
         
@@ -55,8 +55,11 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="90dp"
             android:maxLines="1"
+            android:textColor="#BF6BB1"
             android:paddingTop="150px"
+            android:fontFamily="@font/seoulnamsan"
             android:textSize="20dp"
+
             android:textStyle="bold" />
 
         <ImageView
@@ -78,7 +81,8 @@
             android:maxLines="20"
             android:paddingTop="1px"
             android:scrollHorizontally="false"
-            android:textColor="#afafaf"
+            android:fontFamily="@font/seoulnamsan"
+            android:textColor="#AFAFAF"
             android:textSize="20dp"
             android:textStyle="bold" />
     </RelativeLayout>

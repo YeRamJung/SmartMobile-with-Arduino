@@ -57,13 +57,13 @@
                 android:layout_marginTop="60dp"
                 android:background="@drawable/round_shape">
 
-                <ImageButton
-                    android:id="@+id/camera"
+                <ImageView
+                    android:id="@+id/imgCamera"
                     android:layout_width="260dp"
                     android:layout_height="170dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="30dp"
-                    android:background="@drawable/round_shape_white" />
+                    android:src="@drawable/baby" />
 
                 <FrameLayout
                     android:layout_width="80dp"
@@ -71,7 +71,7 @@
                     android:layout_gravity="right">
 
                     <ImageButton
-                        android:id="@+id/btnCmaeraON"
+                        android:id="@+id/btnCamera"
                         android:layout_width="50dp"
                         android:layout_height="75dp"
                         android:layout_gravity="center_horizontal"
@@ -79,7 +79,7 @@
                         android:background="@drawable/btncameraon1" />
 
                     <ImageButton
-                        android:id="@+id/btnCameraOFF"
+                        android:id="@+id/btnAlbum"
                         android:layout_width="50dp"
                         android:layout_height="75dp"
                         android:layout_gravity="center_horizontal"
@@ -107,7 +107,7 @@
                 <FrameLayout
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -189,7 +189,7 @@
                 <FrameLayout
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -269,7 +269,7 @@
                 <FrameLayout
                     android:layout_width="330dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -329,7 +329,7 @@
                 <FrameLayout
                     android:layout_width="330dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -351,8 +351,8 @@
 
                         <ImageButton
                             android:id="@+id/btnMobile"
-                            android:layout_width="55dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60dp"
+                            android:layout_height="65dp"
                             android:layout_marginLeft="45dp"
                             android:layout_marginTop="50dp"
                             android:background="@drawable/mobile" />

@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 블루투스 연결 허용 퍼미션 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 카메라 퍼미션 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +19,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <!-- 카메라 사용을 위한 Provider 선언 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.swudoit"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".ListActivity"></activity>
         <activity android:name=".musicList" />
         <activity android:name=".SettingInfoActivity" /> <!-- <activity android:name=".TabActivity"></activity> -->
