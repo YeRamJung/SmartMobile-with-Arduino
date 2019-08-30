@@ -47,7 +47,7 @@ public class FragmentDiary extends Fragment {
     protected static SharedPreferences prf;
 
     // 해당 아이디의 다이어리 갯수를 나타내는 index
-    static int index;
+    public static int index;
     protected static String userIdx;
 
 

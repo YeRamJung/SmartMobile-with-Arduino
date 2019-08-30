@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/itemPhoto"
+                android:id="@+id/itemImage"
                 android:layout_width="130dp"
                 android:layout_height="110dp"
                 android:layout_marginTop="18dp"
@@ -44,6 +44,7 @@
                 />
 
             <TextView
+                android:id="@+id/itemContent"
                 android:layout_width="150dp"
                 android:layout_height="15dp"
                 android:layout_marginLeft="10dp"
@@ -57,6 +58,7 @@
                 />
 
             <TextView
+                android:id="@+id/itemToday"
                 android:layout_width="80dp"
                 android:layout_height="15dp"
                 android:layout_marginLeft="110dp"
