@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -43,6 +44,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
 
 public class FragmentHome extends Fragment {
 
@@ -77,36 +79,36 @@ public class FragmentHome extends Fragment {
         /*블루투스*/
         bt = new BluetoothSPP(getActivity()); //Initializing
 
-        if (!bt.isBluetoothAvailable()) { //블루투스 사용 불가
-            Toast.makeText(getContext()
-                    , "Bluetooth is not available"
-                    , Toast.LENGTH_SHORT).show();
-            getActivity().finish();
-        }
-
-        bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
-            public void onDataReceived(byte[] data, String message) {
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() { //연결됐을 때
-            public void onDeviceConnected(String name, String address) {
-                Toast.makeText(getContext()
-                        , "Connected to " + name + "\n" + address
-                        , Toast.LENGTH_SHORT).show();
-            }
-
-            public void onDeviceDisconnected() { //연결해제
-                Toast.makeText(getContext()
-                        , "Connection lost", Toast.LENGTH_SHORT).show();
-            }
-
-            public void onDeviceConnectionFailed() { //연결실패
-                Toast.makeText(getContext()
-                        , "Unable to connect", Toast.LENGTH_SHORT).show();
-            }
-        }); //end 블루투스
+//        if (!bt.isBluetoothAvailable()) { //블루투스 사용 불가
+//            Toast.makeText(getContext()
+//                    , "Bluetooth is not available"
+//                    , Toast.LENGTH_SHORT).show();
+//            getActivity().finish();
+//        }
+//
+//        bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
+//            public void onDataReceived(byte[] data, String message) {
+//                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() { //연결됐을 때
+//            public void onDeviceConnected(String name, String address) {
+//                Toast.makeText(getContext()
+//                        , "Connected to " + name + "\n" + address
+//                        , Toast.LENGTH_SHORT).show();
+//            }
+//
+//            public void onDeviceDisconnected() { //연결해제
+//                Toast.makeText(getContext()
+//                        , "Connection lost", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            public void onDeviceConnectionFailed() { //연결실패
+//                Toast.makeText(getContext()
+//                        , "Unable to connect", Toast.LENGTH_SHORT).show();
+//            }
+//        }); //end 블루투스
 
 
         //카메라를 사용하기 위한 퍼미션을 요청한다.
@@ -431,6 +433,25 @@ public class FragmentHome extends Fragment {
 //        if(resultCode == getActivity().RESULT_OK) {
 //            if(requestCode == REQUEST_IMAGE_CAPTURE) {
 //                sendPicture();
+//            }
+//        }
+//    }
+
+//    public void onDestroy() {
+//        super.onDestroy();
+//        bt.stopService(); //블루투스 중지
+//    }
+//
+//    public void onStart() {
+//        super.onStart();
+//        if (!bt.isBluetoothEnabled()) { //
+//            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+//            startActivityForResult(intent, BluetoothState.REQUEST_ENABLE_BT);
+//        } else {
+//            if (!bt.isServiceAvailable()) {
+//                bt.setupService();
+//                bt.startService(BluetoothState.DEVICE_OTHER); //DEVICE_ANDROID는 안드로이드 기기 끼리
+//                setup();
 //            }
 //        }
 //    }
