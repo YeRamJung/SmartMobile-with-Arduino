@@ -77,8 +77,8 @@ public class SignUp extends AppCompatActivity {
                 String pass = passE.getText().toString();
                 String confirm = passConfirmE.getText().toString();
 
-                // 비밀번호 일치 하지 않음
-                if(pass != confirm){
+                // 비밀번호 일치 하지 않음 수정해야함
+                if(pass == confirm){
                     Log.d("Pass ", pass);
                     Log.d("Confirm ", confirm);
 
