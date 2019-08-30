@@ -157,11 +157,11 @@ else if(val==2){  //학교 종이 땡땡땡 음악 재생
 }
 else if(val==3){//무드등
   if(isOnLight==false){
-    digitalWrite(6, HIGH);
+    analogWrite(6, 255);
     isOnLight=true;
   }
   else{
-    digitalWrite(6, LOW);
+    analogWrite(6, 0);
     isOnLight=false;
   }
 }else if(val==4){ //모빌
