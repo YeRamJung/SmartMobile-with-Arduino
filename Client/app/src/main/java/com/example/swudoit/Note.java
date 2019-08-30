@@ -159,11 +159,11 @@ public class Note extends AppCompatActivity {
                         Log.d("Message", "Content : " + content);
                         Log.d("Message", "Today : " + today);
 
-                        if(title.isEmpty()){
+                        if(title.isEmpty() || content.isEmpty()){
                             AlertDialog.Builder ab = new AlertDialog.Builder(Note.this);
 
                             ab.setTitle("Error");
-                            ab.setMessage("제목을 입력해주세요!");
+                            ab.setMessage("제목과 내용을 입력해주세요!");
 
                             ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                 @Override

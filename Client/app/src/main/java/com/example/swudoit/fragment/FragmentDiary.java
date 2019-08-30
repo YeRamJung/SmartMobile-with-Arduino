@@ -24,6 +24,7 @@ import com.example.swudoit.Note;
 import com.example.swudoit.NoteList;
 import com.example.swudoit.R;
 import com.example.swudoit.SettingInfoActivity;
+import com.example.swudoit.item;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -120,6 +121,65 @@ public class FragmentDiary extends Fragment {
                             // Index
                             index = Integer.parseInt(temp);
                             Log.d("Index", String.valueOf(index));
+
+                            ConnectServer connectServerPost = new ConnectServer();
+                            connectServerPost.requestPost(userIdx);
+                        }else{
+                            Log.d("Error", "오류");
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
+        public void requestPost(final String userIdx){
+            RequestBody body = new FormBody.Builder()
+                    .add("userIdx", userIdx)
+                    .add("index", String.valueOf(index))
+                    .build();
+
+            final Request request = new Request.Builder()
+                    .url(url+"user/selectdiary")
+                    .post(body)
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.d("error", "Connect Server Error is " + e.toString());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    try{
+                        Gson gson = new Gson();
+
+                        String stl = gson.toJson(response.body().string());
+
+                        Log.d("Response ", "Response Body is " + stl);
+
+                        if(response.isSuccessful()){
+                            String tempTitle = stl.substring(stl.indexOf("title")+11, stl.indexOf("\\\"],\\\"content"));
+                            String[] title = tempTitle.split("\\\\\\\",\\\\\\\"");
+
+                            //String tempContent = stl.substring(stl.indexOf("title")+tempTitle.length()+30, stl.indexOf("\\\"],\\\"today"));
+                            //Log.d("temp", tempContent);
+                            String tempContent = stl.substring(stl.indexOf(tempTitle)+tempTitle.length()+19, stl.indexOf("\\\"],\\\"today"));
+                            //Log.d("temp Content", tempContent);
+                            String[] content = tempContent.split("\\\\\\\",\\\\\\\"");
+                            //Log.d("content ", content[0] + " " + content[1]);
+
+                            String tempToday = stl.substring(stl.indexOf(tempContent)+tempContent.length()+17, stl.indexOf("\\\"],\\\"image_name"));
+                            //Log.d("temp Today", tempToday);
+                            String[] today = tempToday.split("\\\\\\\",\\\\\\\"");
+                            //Log.d("today", today[0] + " " + today[1]);
+
+                            for(int i = 0; i < index; i++){
+                                item.dataTest(title[i], content[i], today[i], "", "");
+                            }
+
                         }else{
                             Log.d("Error", "오류");
                         }
