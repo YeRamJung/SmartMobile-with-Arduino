@@ -58,13 +58,6 @@ public class item extends AppCompatActivity {
 
     }
 
-//    public void addView(TextView title, TextView content, TextView today, ImageView image){
-//        itemTitle = title;
-//        itemContent = content;
-//        itemToday = today;
-//        itemImage = image;
-//    }
-
     public static void dataTest(String title, String content, String today, String image_name, String image_copied){
         Log.d("Message", "title : " + title);
         Log.d("Message", " content : " + content);
