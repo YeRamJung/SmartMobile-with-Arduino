@@ -51,6 +51,26 @@
         </RelativeLayout>
 
 
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_shape_white"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="90dp"
+            android:text="카메라"
+            />
+
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_shape_white"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="190dp"
+            android:text="앨범"
+            />
+
+
 
         <EditText
             android:id="@+id/noteTitle"
