@@ -10,8 +10,8 @@ SoftwareSerial bluetooth(BT_RXD, BT_TXD);
 
 Servo servo;
 
-int GasPin = A0;  // MQ7 일산화탄소 센서 데이터 핀 A1 에 연결
-int dhtPin = A1; // DHT11 온습도 센서 데이터 핀 A0 에 연결
+int GasPin = A1;  // MQ7 일산화탄소 센서 데이터 핀 A1 에 연결
+int dhtPin = A0; // DHT11 온습도 센서 데이터 핀 A0 에 연결
 int SoundPin = A2;  // LM393 소리감지 센서 데이터 핀 A2 에 연결
 
 DHT dht(dhtPin,DHT11);
@@ -95,21 +95,24 @@ bool isOnHumi = false;
 void setup() {
   Serial.begin(9600);
   bluetooth.begin(9600);
+  dht.begin();
   pinMode(6, OUTPUT);
   servo.attach(10);
   pinMode(tonepin, OUTPUT);
 
   pinMode(GasPin, INPUT);
   pinMode(SoundPin, INPUT);
-  
-  dht.begin();
-
   lcd.begin(16, 2); 
 }
 
 
 void loop() {
-    int val = bluetooth.read();
+  int val = bluetooth.read();
+
+  int temp = dht.readTemperature();  // 온도값 저장
+  int humi = dht.readHumidity();  // 습도값 저장
+  int gas = analogRead(GasPin);  // 가스값 저장
+  int sound = analogRead(SoundPin);
   
   /* each value means
    * 1. 곰세마리
@@ -187,14 +190,6 @@ else if(val==6){//가습기
     isOnHumi=false;
   }
 }
-  float temp = dht.readTemperature();  // 온도값 저장
-  float humi = dht.readHumidity();  // 습도값 저장
-  
-  int gas = analogRead(GasPin);  // 가스값 저장
-  
-  float sound = analogRead(SoundPin);
-
-  
 
   // 센서 (온습도, 가스, 사운드) 측정
   Serial.print("temp: ");
@@ -264,11 +259,8 @@ else if(val==6){//가습기
   }
 
   // LCD
-  lcd.clear();
-  delay(3000);
+  
   lcd.setCursor(0,0);
-  lcd.print(temp);
-  lcd.setCursor(0,1);
-  lcd.print("Hello");
-  delay(2000);
+  lcd.write("Hello");
+  
 }
