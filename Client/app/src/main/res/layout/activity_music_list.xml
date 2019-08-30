@@ -45,7 +45,7 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="14dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/musicon"
+                android:background="@drawable/music"
             />
 
             <TextView
@@ -77,7 +77,7 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="14dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/musicon"
+                android:background="@drawable/music"
                 />
 
             <TextView

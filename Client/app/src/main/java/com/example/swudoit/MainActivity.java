@@ -185,12 +185,18 @@ public class MainActivity extends AppCompatActivity {
 
                         if(response.isSuccessful()){
 
-                            int temp = stl.indexOf("id");
-                            String idStl = stl.substring(temp+7, stl.length()-5);
+                            int idtemp = stl.indexOf("id");
+                            int idxtemp = stl.indexOf("userIdx");
+
+                            String idStl = stl.substring(idtemp+7, idxtemp-5);
+                            String idxStl = stl.substring(idxtemp+10, stl.length()-3);
+
+                            Log.d("Idx", idxStl);
 
                             SharedPreferences.Editor editor = sharedPreferences.edit();
 
                             editor.putString("id", idStl);
+                            editor.putString("userIdx", idxStl);
 
                             idSession = sharedPreferences.getString("id", null);
 
@@ -228,7 +234,8 @@ public class MainActivity extends AppCompatActivity {
     public static void logOut(){
         try{
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            Log.d("Debug", sharedPreferences.getString("id", null));
+            Log.d("Debug1", sharedPreferences.getString("id", null));
+            Log.d("Debug2", sharedPreferences.getString("userIdx", null));
 
             editor.clear();
             editor.commit();
@@ -239,7 +246,6 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
 }

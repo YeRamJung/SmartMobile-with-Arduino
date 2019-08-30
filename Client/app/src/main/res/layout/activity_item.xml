@@ -52,6 +52,7 @@
                 android:fontFamily="@font/seoulnamsan"
                 android:textColor="#afafaf"
                 android:textStyle="bold"
+                android:singleLine="true"
                 android:text="어쩌구 저쩌구"
                 />
 

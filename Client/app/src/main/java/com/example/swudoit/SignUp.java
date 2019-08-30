@@ -149,8 +149,7 @@ public class SignUp extends AppCompatActivity {
 
                         Log.d("Message ", stl);
 
-                        if(stl.contains("62")){ // 62 : 성공
-
+                        if(response.isSuccessful()){
                             backgroundThreadShortToast(SignUp.this, id + "님 가입을 축하합니다.");
 
                             Intent signupView = new Intent(SignUp.this, MainActivity.class);
