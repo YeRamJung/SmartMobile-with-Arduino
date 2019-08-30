@@ -51,7 +51,7 @@ public class FragmentSetting extends Fragment {
                 ab.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(getActivity(), SignUp.class);
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
                         startActivity(intent);
                         Toast.makeText(getActivity(), "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -84,7 +84,7 @@ public class FragmentSetting extends Fragment {
                     /*입력받은 비밀번호랑 실제 회원 비밀번호랑 같은지 확인하기*/
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        Intent intent = new Intent(getActivity(), SignUp.class);
                         startActivity(intent);
                         Toast.makeText(getActivity(), "탈퇴 되었습니다.", Toast.LENGTH_SHORT).show();
                     }
