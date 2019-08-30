@@ -7,6 +7,8 @@ public class Diary {
     public String content;
     public String date;
 
+    public Diary(){ }
+
     public Diary(String id, String pic, String title, String content, String date) {
         this.id = id;
         this.pic = pic;
