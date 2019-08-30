@@ -38,7 +38,7 @@ bool isBabyCry = false;  // 소리 감지 울음 판단?
 #define NOTE_B5  988   //si
 #define NOTE_C6  1047  //do
 
-int tonepin = 12;
+int tonepin = 13;
 
 //3bears
 int melody_3bears[] = {
@@ -107,7 +107,7 @@ void setup() {
 
 
 void loop() {
-  int val = bluetooth.read();
+  int val = 5;
 
   int temp = dht.readTemperature();  // 온도값 저장
   int humi = dht.readHumidity();  // 습도값 저장
@@ -172,7 +172,7 @@ else if(val==3){//무드등
 else if(val==5){//에어컨
   lcd.setCursor(0,0);
   if(isOnAir==false){
-    lcd.print("Aircon ON");
+    lcd.print("Aircon  ON");
     isOnAir=true;
   }
   else{
@@ -183,7 +183,7 @@ else if(val==5){//에어컨
 else if(val==6){//가습기
   lcd.setCursor(0,1);
   if(isOnHumi==false){
-    lcd.print("Humi ON");
+    lcd.print("Humi  ON");
     isOnHumi=true;
   }
   else{
@@ -260,8 +260,8 @@ else if(val==6){//가습기
   }
 
   // LCD
-  
   lcd.setCursor(0,0);
-  lcd.write("Hello");
+  //lcd.write("Hello");
+  delay(7000);
   
 }
