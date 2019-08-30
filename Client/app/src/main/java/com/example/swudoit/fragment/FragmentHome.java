@@ -27,7 +27,7 @@ public class FragmentHome extends Fragment {
     private ImageButton aircon;
     private ImageButton mobile;
 
-    private int lnum, hnum, anum, mnum = 0;
+    private int lnum, hnum, anum, mnum, snum = 0;
 
     TextView userId;
 
