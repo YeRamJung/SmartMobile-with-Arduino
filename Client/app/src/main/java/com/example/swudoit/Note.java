@@ -179,13 +179,13 @@ public class Note extends AppCompatActivity {
                         }
 
                         // 서버 통신 후 성공하면 Intent, 실패하면 Alert
-                        //ConnectServer connectServerPost = new ConnectServer();
-                        //connectServerPost.requestPost(title, content, today, userIdx, image_name, image_copied);
+                        ConnectServer connectServerPost = new ConnectServer();
+                        connectServerPost.requestPost(title, content, today, userIdx, image_name, image_copied);
 
 
-                        backgroundThreadShortToast(Note.this, "다이어리 업로드하였습니다.");
+                        /*backgroundThreadShortToast(Note.this, "다이어리 업로드하였습니다.");
                         Intent noteListView = new Intent(Note.this, TabActivity.class);
-                        startActivity(noteListView);
+                        startActivity(noteListView);*/
 
                         break;
                 }
