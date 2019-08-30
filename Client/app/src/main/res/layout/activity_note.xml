@@ -71,41 +71,42 @@
             />
 
 
-
         <EditText
             android:id="@+id/noteTitle"
             android:layout_width="250dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="90dp"
-            android:maxLines="1"
-            android:textColor="#BF6BB1"
-            android:paddingTop="150px"
+            android:layout_marginTop="130dp"
             android:fontFamily="@font/seoulnamsan"
+            android:maxLines="1"
+            android:paddingTop="150px"
+            android:textColor="#BF6BB1"
             android:textSize="20dp"
 
             android:textStyle="bold" />
 
         <ImageView
             android:layout_width="330dp"
-            android:layout_height="250dp"
-            android:background="@drawable/round_shape_white"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="195dp"
-            />
+            android:layout_height="220dp"
+            android:layout_alignStart="@+id/noteContent"
+            android:layout_marginStart="-7dp"
+            android:layout_marginTop="230dp"
+            android:background="@drawable/round_shape_white" />
 
            //줄 수정하기
+
         <EditText
             android:id="@+id/noteContent"
             android:layout_width="320dp"
-            android:layout_height="250dp"
+            android:layout_height="220dp"
             android:layout_below="@+id/noteTitle"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/seoulnamsan"
             android:lineHeight="23sp"
             android:maxLines="20"
             android:paddingTop="1px"
             android:scrollHorizontally="false"
-            android:fontFamily="@font/seoulnamsan"
             android:textColor="#AFAFAF"
             android:textSize="20dp"
             android:textStyle="bold" />
