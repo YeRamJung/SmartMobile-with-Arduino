@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,6 +41,8 @@ import com.example.swudoit.musicList;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 
 public class FragmentHome extends Fragment {
 
@@ -63,10 +66,14 @@ public class FragmentHome extends Fragment {
 
     private File tempFile;
 
+    private BluetoothSPP bt;
+
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        bt = new BluetoothSPP(getActivity()); //Initializing
+
 
         //카메라를 사용하기 위한 퍼미션을 요청한다.
         ActivityCompat.requestPermissions(getActivity(), new String[]{
@@ -376,4 +383,31 @@ public class FragmentHome extends Fragment {
 //            }
 //        }
 //    }
+
+
+    //아두이노 블루투스 연결
+    public void setup() {
+        //무드등
+        Button btnLamp = getActivity().findViewById(R.id.btnLamp); //데이터 전송
+        btnLamp.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("3", true);
+            }
+        });
+//        //가습기
+//        Button btnHumi = getActivity().findViewById(R.id.btnHumi); //데이터 전송
+//        btnHumi.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                bt.send("3", true);
+//            }
+//        });
+        //모빌
+        Button btnMobile = getActivity().findViewById(R.id.btnMobile); //데이터 전송
+        btnMobile.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("4", true);
+            }
+        });
+    }
+
 }

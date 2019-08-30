@@ -33,4 +33,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //아두이노 블루투스 통신
+    implementation 'com.akexorcist:bluetoothspp:1.0.0'
+
 }
