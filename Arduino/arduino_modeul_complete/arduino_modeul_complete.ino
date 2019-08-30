@@ -4,8 +4,8 @@
 #include <SoftwareSerial.h>
 #include <Servo.h>
 
-#define BT_RXD 13
-#define BT_TXD 12
+#define BT_RXD 7
+#define BT_TXD 8
 SoftwareSerial bluetooth(BT_RXD, BT_TXD);
 
 Servo servo;
@@ -38,7 +38,7 @@ bool isBabyCry = false;  // 소리 감지 울음 판단?
 #define NOTE_B5  988   //si
 #define NOTE_C6  1047  //do
 
-int tonepin = 2;
+int tonepin = 12;
 
 //3bears
 int melody_3bears[] = {
@@ -95,8 +95,8 @@ bool isOnHumi = false;
 void setup() {
   Serial.begin(9600);
   bluetooth.begin(9600);
-  pinMode(8, OUTPUT);
-  servo.attach(4);
+  pinMode(6, OUTPUT);
+  servo.attach(10);
   pinMode(tonepin, OUTPUT);
 
   pinMode(GasPin, INPUT);
