@@ -265,10 +265,10 @@ else if(val==6){//가습기
 
   // LCD
   lcd.clear();
-  delay(1000);
+  delay(3000);
   lcd.setCursor(0,0);
   lcd.print(temp);
   lcd.setCursor(0,1);
   lcd.print("Hello");
-  delay(1000);
+  delay(2000);
 }
