@@ -58,6 +58,8 @@ public class Note extends AppCompatActivity {
     // 타이틀 입력 -> return String
     // 내용 or 타이틀 입력 하지 않음 -> 입력하라고 알람 뜨기
 
+    static final String url = "http://13.125.111.255:3000/";
+
     private ImageView imgRoundShape;
     //사진이 저장되는 경로 - onActivityResult()로부터 받는 데이터
     private Uri mCaptureUri;

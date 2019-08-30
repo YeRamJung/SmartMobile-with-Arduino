@@ -2,6 +2,7 @@ package com.example.swudoit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
@@ -18,20 +19,24 @@ import java.util.ArrayList;
 
 public class item extends AppCompatActivity {
 
+
+
     String title;
     String content;
     String today;
     String image_name;
     String image_copied;
 
-    TextView itemTitle;
-    TextView itemContent;
-    TextView itemToday;
-    ImageView itemImage;
+    TextView itemTitle;  //제목
+    TextView itemContent;  //내용
+    TextView itemToday;  //날짜
+    ImageView itemImage;  //사진
     ListView listView;
 
     FragmentDiary fd = new FragmentDiary();
     int index = fd.index;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
