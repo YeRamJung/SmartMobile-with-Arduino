@@ -155,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call call, IOException e) {
                     Log.d("error", "Connect Server Error is " + e.toString());
-
                     backgroundThreadShortToast(MainActivity.this, "아이디, 비밀번호를 확인하세요.");
 
                 }
@@ -165,10 +164,10 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("Response ", "Response Body is " + response.body().string());
                     try{
                         Gson gson = new Gson();
-                        String falsedStl = gson.toJson(response.body());
+                        String stl = gson.toJson(response.body());
 
-                        if(falsedStl.contains("68")){
-                            Intent mainView = new Intent(MainActivity.this, swudoit_main.class);
+                        if(stl.contains("68")){
+                            Intent mainView = new Intent(MainActivity.this, TabActivity.class);
                             startActivity(mainView);
 
                             backgroundThreadShortToast(MainActivity.this, id + "님 환영합니다.");
