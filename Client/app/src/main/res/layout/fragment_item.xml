@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/item"
+        android:id="@+id/fragmentitem"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:orientation="horizontal"

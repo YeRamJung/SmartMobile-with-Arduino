@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.FragmentDiary">
+    tools:context=".fragment.FragmentDiary"
+    android:id="@+id/fragmentdiary">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,8 +40,10 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/control_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#cccccc">
         <ListView
             android:id="@+id/lstDiary"
             android:layout_width="match_parent"
