@@ -6,12 +6,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -50,7 +52,7 @@ public class FragmentDiary extends Fragment {
     public static LayoutInflater in;
 
 
-    public static LinearLayout l;
+    //public static LinearLayout l;
     public static LinearLayout con;
 
     public static View view;
@@ -83,21 +85,13 @@ public class FragmentDiary extends Fragment {
         ConnectServer connectServerPost = new ConnectServer();
         connectServerPost.requestPostIndex(userIdx);
 
-        ConnectServer connectPost = new ConnectServer();
-        connectPost.requestPost(userIdx, view, in);
-
-        l = view.findViewById(R.id.fragmentdiary);
+        /*l = view.findViewById(R.id.fragmentdiary);
 
         con = (LinearLayout) in.inflate(R.layout.fragment_item, null);
         LinearLayout conn = (LinearLayout) in.inflate(R.layout.fragment_item, null);
 
         l.addView(con);
-        l.addView(conn);
-
-        for(int i = 0; i < index; i++){
-            Log.d("I", "Index");
-        }
-
+        l.addView(conn);*/
         //TextView title = con.findViewById(R.id.itemTitle);
         //TextView contetn = con.findViewById(R.id.itemContent);
         //TextView today = con.findViewById(R.id.itemToday);
@@ -110,11 +104,11 @@ public class FragmentDiary extends Fragment {
 
         userIdx = prf.getString("userIdx", null);
 
-        ConnectServer connectServerPost = new ConnectServer();
-        connectServerPost.requestPostIndex(userIdx);
+       //ConnectServer connectServerPost = new ConnectServer();
+        //connectServerPost.requestPostIndex(userIdx);
     }
 
-    public static class ConnectServer{
+    public class ConnectServer{
         OkHttpClient client = new OkHttpClient();
 
         String url = "http://13.125.111.255:3000/";
@@ -148,10 +142,9 @@ public class FragmentDiary extends Fragment {
                             String temp = stl.substring(stl.length()-3, stl.length()-2);
                             // Index
                             index = Integer.parseInt(temp);
-                            Log.d("Index", String.valueOf(index));
 
-                            //ConnectServer connectServerPost = new ConnectServer();
-                            //connectServerPost.requestPost(userIdx, view);
+                            ConnectServer connectServerPost = new ConnectServer();
+                            connectServerPost.requestPost(userIdx);
                         }else{
                             Log.d("Error", "오류");
                         }
@@ -162,7 +155,7 @@ public class FragmentDiary extends Fragment {
             });
         }
 
-        public void requestPost(final String userIdx, final View v, final LayoutInflater i){
+        public void requestPost(final String userIdx){
             RequestBody body = new FormBody.Builder()
                     .add("userIdx", userIdx)
                     .add("index", String.valueOf(index))
@@ -197,12 +190,16 @@ public class FragmentDiary extends Fragment {
                             String tempContent = stl.substring(stl.indexOf(tempTitle)+tempTitle.length()+19, stl.indexOf("\\\"],\\\"today"));
                             //Log.d("temp Content", tempContent);
                             String[] content = tempContent.split("\\\\\\\",\\\\\\\"");
-                            Log.d("content ", content[0] + " " + content[1]);
+                            //Log.d("content ", content[0] + " " + content[1]);
 
                             String tempToday = stl.substring(stl.indexOf(tempContent)+tempContent.length()+17, stl.indexOf("\\\"],\\\"image_name"));
                             //Log.d("temp Today", tempToday);
                             String[] today = tempToday.split("\\\\\\\",\\\\\\\"");
                             //String[] tempT = tempToday.split("\\\\\\\",\\\\\\\"");
+
+                            for(int i = 0; i < index; i++){
+                                addLayout(title[i], content[i], today[i]);
+                            }
 
                         }else{
                             Log.d("Error", "오류");
@@ -215,8 +212,43 @@ public class FragmentDiary extends Fragment {
         }
     }
 
-    public  static void addLayout(){
+    public void addLayout(final String title, String content, String today){
+
+        LayoutInflater in = getLayoutInflater();
+
+        final LinearLayout l = this.getView().findViewById(R.id.fragmentdiary);
+        Log.d("View", title);
+
+        final LinearLayout conn = (LinearLayout) in.inflate(R.layout.fragment_item, null);
+
+        TextView titleT = conn.findViewById(R.id.itemTitle);
+        TextView contetT = conn.findViewById(R.id.itemContent);
+        TextView todayT = conn.findViewById(R.id.itemToday);
+
+        titleT.setText(title);
+        contetT.setText(content);
+        todayT.setText(today);
+
+        Message msg = handler.obtainMessage();
+
+        handler.handleMessage(msg);
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                LayoutInflater in = getLayoutInflater();
+
+                l.addView(conn);
+
+            }
+        });
     }
+
+    final Handler handler = new Handler(){
+        public void handleMessage(){
+
+        }
+    };
 
     // Toast를 위한 함수
     public static void backgroundThreadShortToast(final Context context, final String msg) {
