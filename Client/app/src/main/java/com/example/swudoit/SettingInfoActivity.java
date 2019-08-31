@@ -18,7 +18,7 @@ public class SettingInfoActivity extends AppCompatActivity {
             TextView userpass = findViewById(R.id.infoPass);
 
             String user = MainActivity.sharedPreferences.getString("id", null);
-            String userPW = MainActivity.sharedPreferences.getString(null, "test");
+            String userPW = MainActivity.sharedPreferences.getString(null, "1234");
 
             userId.setText(user);
             userpass.setText(userPW);

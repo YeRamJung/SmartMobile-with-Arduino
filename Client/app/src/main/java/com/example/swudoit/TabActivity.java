@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +55,7 @@ public class TabActivity extends AppCompatActivity {
     String humi = null;
     String gas = null;
     String sound = null;
-    String arduinostl = null;
+    String arduinostl = null;  //상태
 
 
     @Override

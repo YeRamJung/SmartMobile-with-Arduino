@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/vibratorLayout"
             android:layout_width="match_parent"
             android:layout_height="380dp"
             android:background="#D996C7"
@@ -109,7 +110,7 @@
                 <FrameLayout
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -174,7 +175,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/seoulnamsan"
-                            android:text="30°C"
+                            android:text="27°C"
                             android:textColor="#BF6BB1"
                             android:textSize="50dp" />
                     </FrameLayout>
@@ -191,7 +192,7 @@
                 <FrameLayout
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -253,7 +254,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/seoulnamsan"
-                            android:text="83%"
+                            android:text="64%"
                             android:textColor="#BF6BB1"
                             android:textSize="50dp" />
                     </FrameLayout>
@@ -271,7 +272,7 @@
                 <FrameLayout
                     android:layout_width="330dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 
@@ -331,7 +332,7 @@
                 <FrameLayout
                     android:layout_width="330dp"
                     android:layout_height="150dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_shape">
 

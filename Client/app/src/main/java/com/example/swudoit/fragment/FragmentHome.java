@@ -36,6 +36,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -106,9 +107,16 @@ public class FragmentHome extends Fragment {
 
         /*소리가 일정 이상이면 진동 울리도록 하기*/
         //진동
-        Vibrator vibrator = (Vibrator)getActivity().getSystemService (Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(3000);
-        Toast.makeText(getActivity(), "아이가 울고 있어요ㅜㅠㅜㅠㅜㅠㅜㅠㅜㅠㅜㅠㅠㅜㅠ", Toast.LENGTH_SHORT).show();
+        FrameLayout vibratorLayout = view.findViewById(R.id.vibratorLayout);
+        vibratorLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Vibrator vibrator = (Vibrator)getActivity().getSystemService (Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(3000);
+                Toast.makeText(getActivity(), "아이가 울고 있어요ㅜㅠㅜㅠㅜㅠㅜㅠㅜㅠㅜㅠㅠㅜㅠ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 //        /*블루투스*/
 //        bt = new BluetoothSPP(getActivity()); //Initializing
@@ -219,9 +227,11 @@ public class FragmentHome extends Fragment {
                 if (lnum == 0) {
                     lamp.setSelected(true);
                     lnum = 1;
+                    Toast.makeText(getActivity(), "무드등 on", Toast.LENGTH_SHORT).show();
                 } else {
                     lamp.setSelected(false);
                     lnum = 0;
+                    Toast.makeText(getActivity(), "무드등 off", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -233,9 +243,11 @@ public class FragmentHome extends Fragment {
                 if (hnum == 0) {
                     humi.setSelected(true);
                     hnum = 1;
+                    Toast.makeText(getActivity(), "가습기 on", Toast.LENGTH_SHORT).show();
                 } else {
                     humi.setSelected(false);
                     hnum = 0;
+                    Toast.makeText(getActivity(), "가습기 off", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -247,9 +259,11 @@ public class FragmentHome extends Fragment {
                 if (anum == 0) {
                     aircon.setSelected(true);
                     anum = 1;
+                    Toast.makeText(getActivity(), "에어컨 on", Toast.LENGTH_SHORT).show();
                 } else {
                     aircon.setSelected(false);
                     anum = 0;
+                    Toast.makeText(getActivity(), "에어컨 off", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -261,9 +275,11 @@ public class FragmentHome extends Fragment {
                 if (mnum == 0) {
                     mobile.setSelected(true);
                     mnum = 1;
+                    Toast.makeText(getActivity(), "모빌 on", Toast.LENGTH_SHORT).show();
                 } else {
                     mobile.setSelected(false);
                     mnum = 0;
+                    Toast.makeText(getActivity(), "모빌 off", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_shape">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="130dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="10dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="많이 웃은 날"
+                android:fontFamily="@font/seoulnamsan"
+                android:textSize="25dp"
+                android:textColor="#bf6bb1"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/itemContent"
+                android:layout_width="150dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="70dp"
+                android:textSize="12dp"
+                android:fontFamily="@font/seoulnamsan"
+                android:textColor="#afafaf"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:text="어쩌구 저쩌구"
+                />
+
+            <TextView
+                android:id="@+id/itemToday"
+                android:layout_width="80dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="115dp"
+                android:textSize="8dp"
+                android:fontFamily="@font/seoulnamsan"
+                android:textColor="#afafaf"
+                android:textStyle="bold"
+                android:text="몇년 몇월 몇일"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
